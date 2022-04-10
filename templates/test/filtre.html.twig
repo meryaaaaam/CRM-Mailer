@@ -1,0 +1,204 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Test' %}
+{% set P_page_title = '' %}
+{% set P_path = '/Test' %} 
+ 
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+  
+
+
+   
+          
+
+
+        <div class="card-toolbar ">         
+                                      <div class="d-flex " data-kt-user-table-toolbar="base">
+                                      	<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+											    Year</button>
+												 <!--begin::Menu 1-->
+												<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
+													<!--begin::Header-->
+												
+													<!--begin::Content-->
+													<div class="px-7 py-5" data-kt-user-table-filter="form">
+														<!--begin::Input group-->
+														<div class="mb-10">
+															<label class="form-label fs-6 fw-bold">Year :</label>
+										                     {{ form_start(form) }}	
+														 
+                                                              {{ form_row(form.Year) }}
+															  {{ dump(Y) }}
+           
+														</div>
+                                                           {{ form_row(form.Submit) }}
+                                                        <button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
+                                                            {{ form_end(form) }}  
+                                                    	</div>
+														<!--end::Actions-->
+													</div>
+													<!--end::Content-->
+											</div> 
+                                        
+{# --------------------------------------------------------------------------------------------------------------------------------- #}
+                                             {{ form_start(form2) }}	<!--begin::Toolbar-->
+											<div class="d-flex " data-kt-user-table-toolbar="base">
+												<!--begin::Filter-->
+												<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+											    Status</button>
+												 <!--begin::Menu 1-->
+												<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
+													<!--begin::Header-->
+												
+													<!--begin::Content-->
+													<div class="px-7 py-5" data-kt-user-table-filter="form">
+														<!--begin::Input group-->
+														<div class="mb-10">
+															<label class="form-label fs-6 fw-bold">Status :</label>
+                                                              {{ form_row(form2.Status) }}
+															  {{ dump(Status) }}
+														</div>
+                                                        
+
+													  {{ form_row(form2.Submit) }}
+                                                       <button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
+
+                                                    	</div>
+														<!--end::Actions-->
+													</div>
+													<!--end::Content-->
+											</div> 
+                                            {{ form_end(form2) }}  
+{# --------------------------------------------------------------------------------------------------------------------------------------- #}
+                                                   {{ form_start(form3) }}	<!--begin::Toolbar-->
+											<div class="d-flex " data-kt-user-table-toolbar="base">
+												<!--begin::Filter-->
+												<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+											    Marque</button>
+												 <!--begin::Menu 1-->
+												<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
+													<!--begin::Header-->
+												
+													<!--begin::Content-->
+													<div class="px-7 py-5" data-kt-user-table-filter="form">
+														<!--begin::Input group-->
+														<div class="mb-10">
+															<label class="form-label fs-6 fw-bold">Marque :</label>
+                                                              {{ form_widget(form3.Marque) }}
+															  {{ dump(Marque) }}
+														</div>
+                                                        
+
+													  {{ form_row(form3.Submit) }}
+                                                       <button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
+
+                                                    	</div>
+														<!--end::Actions-->
+													</div>
+													<!--end::Content-->
+											</div> 
+                                            {{ form_end(form3) }}  
+
+{# --------------------------------------------------------------------------------------------------------------------------------------- #}
+                                                   {{ form_start(form4) }}	<!--begin::Toolbar-->
+											<div class="d-flex " data-kt-user-table-toolbar="base">
+												<!--begin::Filter-->
+												<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+											    Modele</button>
+												 <!--begin::Menu 1-->
+												<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
+													<!--begin::Header-->
+												
+													<!--begin::Content-->
+													<div class="px-7 py-5" data-kt-user-table-filter="form">
+														<!--begin::Input group-->
+														<div class="mb-10">
+															<label class="form-label fs-6 fw-bold">Modele :</label>
+                                                              {{ form_widget(form4.Modele) }}
+															  {{ dump(Model) }}
+														</div>
+                                                        
+
+													  {{ form_row(form4.Submit) }}
+                                                       <button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
+
+                                                    	</div>
+														<!--end::Actions-->
+													</div>
+													<!--end::Content-->
+											</div> 
+                                            {{ form_end(form4) }}  
+
+
+{# --------------------------------------------------------------------------------------------------------------------------------------- #}
+                                                   {{ form_start(form5) }}	<!--begin::Toolbar-->
+											<div class="d-flex " data-kt-user-table-toolbar="base">
+												<!--begin::Filter-->
+												<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+											    Inventaire</button>
+												 <!--begin::Menu 1-->
+												<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
+													<!--begin::Header-->
+												
+													<!--begin::Content-->
+													<div class="px-7 py-5" data-kt-user-table-filter="form">
+														<!--begin::Input group-->
+														<div class="mb-10">
+															<label class="form-label fs-6 fw-bold">Inventaire :</label>
+                                                              {{ form_widget(form5.Inv) }}
+															  {{ dump(Inv) }}
+														</div>
+                                                        
+
+													  {{ form_row(form5.Submit) }}
+                                                       <button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
+
+                                                    	</div>
+														<!--end::Actions-->
+													</div>
+													<!--end::Content-->
+											</div> 
+                                            {{ form_end(form5) }}  
+
+
+
+
+                      {{ form_start(form6) }}	<!--begin::Toolbar-->
+											<div class="d-flex " data-kt-user-table-toolbar="base">
+												<!--begin::Filter-->
+												<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+											    compagnie</button>
+												 <!--begin::Menu 1-->
+												<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
+													<!--begin::Header-->
+												
+													<!--begin::Content-->
+													<div class="px-7 py-5" data-kt-user-table-filter="form">
+														<!--begin::Input group-->
+														<div class="mb-10">
+															<label class="form-label fs-6 fw-bold">Compagnie :</label>
+                                                              {{ form_widget(form6.Users) }}
+															  {{ dump(Users) }}
+														</div>
+                                                        
+
+													  {{ form_row(form6.Submit) }}
+                                                       <button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
+
+                                                    	</div>
+														<!--end::Actions-->
+													</div>
+													<!--end::Content-->
+											</div> 
+                                            {{ form_end(form6) }}  
+
+
+     </div>                    
+                               
+	{{ include('layout/pagination.html.twig') }}
+{% endblock %}
+ 

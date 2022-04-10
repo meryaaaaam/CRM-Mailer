@@ -1,0 +1,415 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Liste des Véhicules' %}
+{% set P_page_title = '' %}
+{% set P_path = '/vehicule' %} 
+
+ 
+{% block body %}
+	 
+								<div class="card">
+									<!--begin::Card header-->
+									<div class="card-header border-0 pt-6 ">
+										<div><h1>Inventaire</h1></div>
+										<!--begin::Card toolbar-->
+										<div class="card-toolbar ">
+												{# <button type="button" class="btn btn-primary me-3" >  
+										         <a href="{{path("vehicule")}}" >	</a>  
+												 <a href="{{path("vehicule")}}" style="color:#ffffff;">Afficher tous</a>
+											    </button> #}
+											  <button type="button" class="btn btn-light-primary me-3" >
+											      <a href="{{path("vehicule")}}" >	
+													  	<!--begin::Svg Icon | path: assets/media/icons/duotune/arrows/arr029.svg-->
+                                                     <span class="svg-icon svg-icon-2">
+													 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                       <path d="M14.5 20.7259C14.6 21.2259 14.2 21.826 13.7 21.926C13.2 22.026 12.6 22.0259 12.1 22.0259C9.5 22.0259 6.9 21.0259 5 19.1259C1.4 15.5259 1.09998 9.72592 4.29998 5.82592L5.70001 7.22595C3.30001 10.3259 3.59999 14.8259 6.39999 17.7259C8.19999 19.5259 10.8 20.426 13.4 19.926C13.9 19.826 14.4 20.2259 14.5 20.7259ZM18.4 16.8259L19.8 18.2259C22.9 14.3259 22.7 8.52593 19 4.92593C16.7 2.62593 13.5 1.62594 10.3 2.12594C9.79998 2.22594 9.4 2.72595 9.5 3.22595C9.6 3.72595 10.1 4.12594 10.6 4.02594C13.1 3.62594 15.7 4.42595 17.6 6.22595C20.5 9.22595 20.7 13.7259 18.4 16.8259Z" fill="black"/>
+                                                       <path opacity="0.3" d="M2 3.62592H7C7.6 3.62592 8 4.02592 8 4.62592V9.62589L2 3.62592ZM16 14.4259V19.4259C16 20.0259 16.4 20.4259 17 20.4259H22L16 14.4259Z" fill="black"/>
+                                                          </svg>
+													</span>
+													</a>
+                                                       <!--end::Svg Icon-->             
+													 <a href="{{path("vehicule")}}">Reset</a>
+
+												      
+										    </button>
+											<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_add_user">
+												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+																								<span class="svg-icon svg-icon-2">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->Filter
+											</button>
+												<!--end::Add user-->
+                                        
+											<button type="button" class="btn btn-primary me-3" >  
+										         <a href="{{path("add_vehicule")}}" >	
+												        <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+												     <span class="svg-icon svg-icon-2">
+													    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														   <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+														  <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+													    </svg>
+												      </span>
+										  	      </a>  	
+												  <a href="{{path("add_vehicule")}}" style="color:#ffffff;">Ajouter</a>
+
+												     <!--end::Svg Icon-->
+											 </button>
+
+												
+										</div> 
+								 </di>	 
+
+ 											<div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
+												<!--begin::Modal dialog-->
+												<div class="modal-dialog modal-dialog-centered modal-xl">
+													<!--begin::Modal content-->
+													<div class="modal-content">
+														<!--begin::Modal header-->
+														<div class="modal-header" id="kt_modal_add_user_header">
+															<!--begin::Modal title-->
+															<h2 class="fw-bolder">Filter Options</h2>
+															<!--end::Modal title-->
+															<!--begin::Close-->
+															<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+																<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+																<span class="svg-icon svg-icon-1">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+																		<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</div>
+															<!--end::Close-->
+														</div>
+														<!--end::Modal header-->
+														<!--begin::Modal body-->
+														<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+															<!--begin::Form-->
+ 															{{  form_start(form) }}
+																<!--begin::Scroll-->
+																<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
+																 
+																 <div class="row">
+																	<!--begin::Input group-->
+
+																	 <div class="col-4 mb-7   ">
+															             <!--begin::Form-->
+																		
+ 															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+																            	<!--begin::Label-->
+																	          <label class="fs-6 fw-bold form-label mb-2"> Year </label> 
+																				  {{ form_row(form.Year) }}
+																				   
+																                    <!--end::Input-->
+															                </div>
+																 
+														        	</div>
+
+													                <div class="col-4 mb-7   ">
+															             <!--begin::Form-->
+ 															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+																            	<!--begin::Label-->
+																	          <label class="fs-6 fw-bold form-label mb-2"> Modéle </label>
+																                <!--end::Label-->
+																                	<!--begin::Input-->
+
+																				  {{ form_row(form.Modele) }}
+																	               
+															                 </div>
+																		 
+														        	</div>
+															              
+																	<div  class="col-4 mb-7">
+
+                                                                       <form id="kt_modal_export_users_form" class="form" action="#">
+															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+ 																	             <!--begin::Label-->
+																	            <label class=" fs-6 fw-bold form-label mb-2">Marque</label>
+																                	<!--end::Label-->
+
+														                          {{ form_row(form.Marque) }}
+																			 </div>
+													 
+														            </div>
+														                  <!--end::Modal body-->
+																</div>
+
+															<div class="row">
+															        <div  class="col-4 mb-7">
+ 															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+ 																	             <!--begin::Label-->
+																	            <label class=" fs-6 fw-bold form-label mb-2">Compagnie</label>
+																                	<!--end::Label-->
+																                   	<!--begin::Input-->
+																               
+													                               {{ form_row(form.Users) }}
+																                	<!--end::Input-->
+ 																	
+																     	    </div>
+																
+																              <!--end::Actions-->
+															    
+															                 <!--end::Form-->
+														            </div>
+
+																	 <div  class="col-4 mb-7">
+
+ 															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+ 																	             <!--begin::Label-->
+																	            <label class=" fs-6 fw-bold form-label mb-2">Inventaire</label>
+																                	<!--end::Label-->
+																                   	<!--begin::Input-->
+																                
+                                                                                	  {{ form_row(form.Inv) }}
+																     	    </div>
+														            </div>
+
+
+																	<div class="col-4 mb-7 ml-5">
+																		<!--begin::Label-->
+																		<label class="  fw-bold fs-6 mb-5">Status  </label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																	 
+																		{{ form_row(form.Status) }}
+																	</div>
+
+
+														    </div>
+
+															 </div>
+																<!--end::Scroll-->
+															 <div class="row">
+																	{# <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button> #}
+																	<div class="col-6">
+																	  {{ form_row(form.Reset) }}
+																	  
+                                                                    </div>  
+		                                                            <div class="col-6">
+																	 {{ form_row(form.Submit) }} 
+																	 </div>
+
+
+																</div>
+															    {{ form_end(form) }}
+
+
+															<!--end::Form-->
+														</div>
+														<!--end::Modal body-->
+													</div>
+													<!--end::Modal content-->
+												</div>
+												<!--end::Modal dialog-->
+											</div>
+											<!--end::Modal - Add task-->
+
+									<div class="card-body py-4">
+										<!--begin::Table-->
+										<table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
+											<thead>
+												<tr class="fw-bolder fs-6 text-gray-800 px-7">
+													
+													<th class="min-w-125px sorting">Photo</th>
+													<th class="min-w-300px sorting ">Détails</th>
+													<th class="min-w-80px sorting">Campany</th>
+												    <th class="min-w-50px sorting">Prix</th>
+													<th class="min-w-50px sorting">N° Inventaire</th>
+													<th class="min-w-50px sorting" >Action</th>
+													
+												</tr>
+											</thead>
+											<tbody>
+												 {% for vehicule in vehicule %}
+												     {% if vehicule.liquidation == false %}
+														    <tr>
+												
+												
+                                                                <td>
+																	<div class="d-flex align-items-center">
+																	
+																	
+																		<div class="d-flex justify-content-start flex-column">
+																			
+																		   
+																			<h3></h3><a href="#" class="text-dark fw-bolder text-hover-primary fs-6"><img src="{{asset(vehicule.media.lien)}}" alt={{vehicule.media.nom}} width="100"/></a></div>	
+																		</div>
+																	</div>
+																</td>
+																<td class="col mb-4">
+																          <b>{{vehicule.annee}}.{{vehicule.marque.nom}}.{{vehicule.modele.nom}}.{{vehicule.Couleurexterieur}}</b><br/>
+																          {{vehicule.carproof}}<br/>
+																           {{vehicule.vin}}<br/>
+																          {{vehicule.category.nom}}
+															    </td>
+																<td>
+																        {{vehicule.utilisateur.nom}}
+																</td>
+																<td>
+																	{{vehicule.prixdetail}}
+															
+															    </td>
+																<td>
+																	{{vehicule.numinventaire}}
+																</td>
+																
+																
+																
+																<td>   
+																     <div class="d-flex justify-content-end flex-shrink-0">
+																		
+																	   <a href="{{path("consultation_vehicule",{ 'id' : vehicule.Id})}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																		   <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+																		   <span class="svg-icon svg-icon-3">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																				<path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="black" />
+																				<path d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z" fill="black" />
+																			</svg>
+																		   </span>
+																		   <!--end::Svg Icon-->
+																    	</a>
+																	
+																	
+																	   <form  method="POST" style="display:inline-block" id="myform"  action="{{path('delete-vehicule', {'id' : vehicule.id})}}"    onsubmit="return">
+																		   <input type="hidden" name="_method" value="delete">
+																		   <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ vehicule.id)}}">
+
+																		     <a href="{{path('delete-vehicule', {'id' : vehicule.id})}}" class="confirmModalLink btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+
+																		         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+																	     	     <span class="svg-icon svg-icon-3">
+																			         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																				        <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black" />
+																				         <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black" />
+																				          <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black" />
+																			       </svg>
+																		         </span>
+																	    	          <!--end::Svg Icon-->
+
+																		    </a>
+                                                                        
+																						<div class="modal fade" tabindex="-1" id="kt_modal_1">
+																							<div class="modal-dialog">
+																								<div class="modal-content">
+																									<div class="modal-header">
+																										<h5 class="modal-title">Confirmation de suppression</h5>
+																						
+																										
+																										<!--begin::Close-->
+																										<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+																											<span class="svg-icon svg-icon-2x"></span>
+																										</div>
+																										<!--end::Close-->
+																									</div>
+																									<div class="modal-body">
+																										<p>Voulez-vous vraiment supprimer vehicule n°<span><b>{{vehicule.vin}}</b></span></p>
+																									</div>
+																						
+																									<div class="modal-footer">
+																										<button type="button" class="btn btn-light" data-bs-dismiss="modal" id="confirmModalNo">Annuler</button>
+																										<button type="submit"  class="btn btn-primary" id="confirmModalYes">Supprimer</button>
+																									
+																								    </div>
+																							  </div>
+																							</div>
+																						</div>
+                                                                        
+																
+																		</form>
+																
+																    </div>
+																</td>
+															
+															</tr>
+												     {% endif %}
+											     {% endfor %}
+											</tbody>
+										</table>
+									</div>
+										
+	                            </div>
+
+		<!--end::Activities drawer-->
+		<!--begin::Chat drawer-->
+	
+		<!--end::Chat drawer-->
+		<!--end::Drawers-->
+		<!--end::Main-->
+</body>
+
+ 	{{ include('layout/pagination.html.twig') }}
+
+<script>
+$("#kt_datatable_example_5").DataTable({
+    "language": {
+        "lengthMenu": "Afficher _MENU_",
+        "sSearch":        "Rechercher:",
+
+  "sLengthMenu":    "Mostrar _MENU_ registros",
+        "sZeroRecords":   "Pas de données pour cette liste",
+        "sEmptyTable":    "Pas de données pour cette liste",
+        
+         "sInfo":          "Affichage de _START_ à _END_ sur un total de _TOTAL_ enregistrements",
+         "oPaginate": {
+           
+            "sNext":    "Suivant",
+            "sPrevious": "Précédent"
+        }   
+		
+                },
+ "dom":
+  "<'row'" +
+  "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
+  "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+  ">" +
+
+  "<'table-responsive'tr>" +
+
+  "<'row'" +
+  "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+  "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+  ">"
+});
+</script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var theHREF;
+	$(".confirmModalLink").click(function(e) {
+			e.preventDefault();
+			theHREF = $(this).attr("href");
+			
+			$("#kt_modal_1").modal("show");
+		});
+
+		$("#confirmModalNo").click(function(e) {
+			$("#kt_modal_1").modal("hide");
+		});
+
+		$("#confirmModalYes").click(function(e) {
+			window.location.href = theHREF;
+			$('#myform'). attr('action', theHREF);
+
+			document.getElementById("myform").submit();
+		});
+
+});
+
+</script>
+
+
+
+{% endblock %}
+ 

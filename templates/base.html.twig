@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>	
+	
+     {{ include('layout/Stylesheets.html.twig') }}
+ 
+
+	</head>
+ 
+    <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+    	<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+			 	<!--begin::Aside-->
+				  {{ include('layout/sidemenu.html.twig') }}
+				<!--end::Aside-->
+				<!--begin::Wrapper-->
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<div id="kt_header" style="" class="header align-items-stretch">
+					<h1>{% block PageTitle %}{% endblock %}</h1>
+                    {# {{ include('layout/topbar.html.twig') }}
+					{{ include('layout/header.html.twig') }} #}
+
+					    {{ include('layout/navbar.html.twig') }}
+	 	                {{ include('layout/toolbar.html.twig') }}
+
+					</div>
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+					<div id="kt_content_container" class="container-xxl">
+				 		{% block body %}
+				
+
+						 {% endblock %}
+					 </div>
+				 </div>
+
+                </div>
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Root-->
+        <!--begin::Scrolltop-->
+			{# {{ include('layout/scrolltop.html.twig') }} #}
+		<!--end::Scrolltop-->
+		<!--end::Main-->
+
+
+    </body>
+
+   {{ include('layout/footer.html.twig') }}
+
+
+
+
+	
+</html>
+
+
+	 
+	{{ include('layout/import.html.twig') }}
+
+

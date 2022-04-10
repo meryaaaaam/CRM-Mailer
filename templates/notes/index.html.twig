@@ -1,0 +1,234 @@
+
+{% extends 'base.html.twig' %}
+{% set page_title = 'Liste des Notes' %}
+{% set P_page_title = 'Liste des Leads' %}
+{% set P_path = '/leads' %} 
+{% block body %}
+
+
+ 
+     <!--begin::Main-->
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        
+       
+  					 
+						<!--begin::Post-->
+                        
+		
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-xxl">
+								<!--begin::Card-->
+								<div class="card">
+									<!--begin::Card header-->
+									<h3 class="fw-bolder m-0">Liste des Notes</h3>
+									<!--end::Card header-->
+									<!--begin::Card body-->
+									<div class="card-body py-4">
+										<!--begin::Table-->
+										<table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
+										
+											
+											<tbody>
+												{% for note in notes %}
+															<tr>
+																<td><div class="d-flex align-items-center">
+																	
+																	<div class="d-flex justify-content-start flex-column">
+																		<span class="text-muted me-2 fs-7 fw-bold">{{note.note}}</a>
+																	</div>
+																</div></td>
+
+														
+															
+																	
+															
+																		   
+																	   
+												<td>						
+																	
+											<form  method="POST" style="display:inline-block"  id="myform" action="{{path('notes_delete', {'id' : note.id , 'idlead' :question_id}) }}" onsubmit="return">
+																		
+																	
+																	 
+																		<input type="hidden" name="_method" value="delete">
+																		<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ note.id)}}">
+											
+																	   
+																		
+																		
+													<a href="{{path('notes_delete', {'id' : note.id , 'idlead' :question_id}) }}" class="confirmModalLink btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																		
+                                                        			
+												
+																		<span class="svg-icon svg-icon-3">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																				<path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black" />
+																				<path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black" />
+																				<path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black" />
+																			</svg>
+																		</span>
+																		<!--end::Svg Icon-->
+
+													</a>
+                                                    </form>
+																		
+																						<div class="modal fade" tabindex="-1" id="kt_modal_1">
+																							<div class="modal-dialog">
+																								<div class="modal-content">
+																									<div class="modal-header">
+																										<h5 class="modal-title">Confirmation de suppresion</h5>
+																						
+																										
+																										<!--begin::Close-->
+																										<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+																											<span class="svg-icon svg-icon-2x"></span>
+																										</div>
+																										<!--end::Close-->
+																									</div>
+																						
+																									<div class="modal-body">
+																										<p>Voulez-vous vraiment supprimer cette note?</p>
+																									</div>
+																						
+																									<div class="modal-footer">
+																										<button type="button" class="btn btn-light" data-bs-dismiss="modal" id="confirmModalNo">Annuler</button>
+																										<button type="submit"  class="btn btn-primary" id="confirmModalYes">Supprimer</button>
+																									
+																								</div>
+																							</div>
+																							</div>
+																						</div>
+
+
+                                                                            
+                                                                        
+																
+																</div></td>
+															
+															</tr>
+													
+												{% endfor %}
+											</tbody>
+										</table>
+										<!--end::Table-->
+
+
+                                        <div class="card-title m-0">
+                                            <h3 class="fw-bolder m-0">Ajouter Note</h3>
+
+                                        </div>
+                                        {{ form_start(form, {'attr': {'idlead': 'question_id'}}) }}
+                                        
+
+                                        <div class="row mb-6">
+							
+                                            {{ form_label(form.note, "note :", {'label_attr': {'class':"col-lg-4 col-form-label required fw-bold fs-6"}}) }}
+                                            
+                                            <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                                {{ form_widget(form.note, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+                                                {{ form_errors(form.note) }}
+                
+                                        </div>
+                                        </div>
+                                   <div style="display:none;">{{ form_row(form.lead)}}</div>
+                                        
+                                        
+			   
+			<div class="card-footer d-flex justify-content-end py-6 px-9">
+				<button type="reset" class="btn btn-light btn-active-light-primary me-2">Annuler</button>
+                
+               
+
+
+			    <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit" >
+				Ajouter
+				</button>
+			</div>
+			
+					{# Fermeture de la balise <form> du formulaire HTML #}
+					{{ form_end(form) }}
+                                        </div>
+
+
+
+
+									</div>
+									<!--end::Card body-->
+							 </di>
+ 				 
+				</div>
+				</div>
+				</div>
+				</div>
+ 
+ 	 
+
+
+ 	{{ include('layout/pagination.html.twig') }}
+						<script>
+							$("#kt_datatable_example_5").DataTable({
+ "language": {
+        "lengthMenu": "Afficher _MENU_",
+        "sSearch":        "Rechercher:",
+     
+        
+        "sLengthMenu":    "Mostrar _MENU_ registros",
+        "sZeroRecords":   "No se encontraron resultados",
+        "sEmptyTable":    "Pas de données pour cette liste",
+        
+         "sInfo":          "Affichage de _START_ à _END_ sur un total de _TOTAL_ enregistrements",
+         "oPaginate": {
+           
+            "sNext":    "Suivant",
+            "sPrevious": "Précédent"
+        }     
+     
+ },
+ "dom":
+  "<'row'" +
+  "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
+  "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+  ">" +
+
+  "<'table-responsive'tr>" +
+
+  "<'row'" +
+  "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+  "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+  ">"
+});
+</script>
+
+<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			var theHREF;
+			$(".confirmModalLink").click(function(e) {
+					e.preventDefault();
+					theHREF = $(this).attr("href");
+					console.log(theHREF);
+					$("#kt_modal_1").modal("show");
+				});
+
+				$("#confirmModalNo").click(function(e) {
+					$("#kt_modal_1").modal("hide");
+				});
+
+				$("#confirmModalYes").click(function(e) {
+				//	window.location.href = theHREF;
+					$('#myform'). attr('action', theHREF);
+
+					document.getElementById("myform").submit();
+				});
+
+		});
+
+</script> 
+  
+  
+{% endblock %} 
+

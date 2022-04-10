@@ -1,0 +1,248 @@
+
+{% extends 'base.html.twig' %}
+{% set page_title = 'Liste des Documents attaché' %}
+{% set P_page_title = 'Liste des Leads' %}
+{% set P_path = '/leads' %} 
+{% block body %}
+
+
+ 
+     <!--begin::Main-->
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        
+       
+  					 
+						<!--begin::Post-->
+                        
+		
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-xxl">
+								<!--begin::Card-->
+								<div class="card">
+									<!--begin::Card header-->
+									<h3 class="fw-bolder m-0">Liste des Documents</h3>
+									<!--end::Card header-->
+									<!--begin::Card body-->
+									<div class="card-body py-4">
+										<!--begin::Table-->
+										<table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
+										
+											
+										
+                                      	
+												{% for file in files %}
+											
+																	
+																        
+                                                                    
+																		<span class="text-muted me-2 fs-7 fw-bold">{{file.titre}}</span>
+                                                                           
+                                                                           
+                                                                           <a download href="{{asset('/media/files/' ~ file.nom  )}}" ><img src="{{asset('/media/files/pdf.JFIF')}}" alt="Photo" width="50" >  <i class="fa fa-download"></i></a>
+
+                                                                        
+															 		
+																       
+                                                            
+														
+															
+																	
+															
+																		   
+																	   
+																		
+																	
+											<form  method="POST" style="display:inline-block"  id="myform" action="{{path('files_lead_delete', {'id' : file.id , 'idlead' :question_id}) }}" onsubmit="return">
+																		
+																	
+																	 
+																		<input type="hidden" name="_method" value="delete">
+																		<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ file.id)}}">
+											
+																	   	
+																		
+													<a href="{{path('files_lead_delete', {'id' : file.id , 'idlead' :question_id}) }}" class="confirmModalLink btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																		
+                                                      		
+												
+																		<span class="svg-icon svg-icon-3">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="30" height="50" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                                              </svg>
+																		</span>
+																		<!--end::Svg Icon-->
+
+													</a>
+                                                    </form>
+																		
+																						<div class="modal fade" tabindex="-1" id="kt_modal_1">
+																							<div class="modal-dialog">
+																								<div class="modal-content">
+																									<div class="modal-header">
+																										<h5 class="modal-title">Confirmation de suppresion</h5>
+																						
+																										
+																										<!--begin::Close-->
+																										<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+																											<span class="svg-icon svg-icon-2x"></span>
+																										</div>
+																										<!--end::Close-->
+																									</div>
+																						
+																									<div class="modal-body">
+																										<p>Voulez-vous vraiment supprimer cette note?</p>
+																									</div>
+																						
+																									<div class="modal-footer">
+																										<button type="button" class="btn btn-light" data-bs-dismiss="modal" id="confirmModalNo">Annuler</button>
+																										<button type="submit"  class="btn btn-primary" id="confirmModalYes">Supprimer</button>
+																									
+																								</div>
+																							</div>
+																							</div>
+																						</div>
+
+
+                                                                            
+                                                                        
+																
+																</div>
+															
+															
+													
+												{% endfor %}
+										
+										<!--end::Table-->
+
+
+                                        <div class="card-title m-0">
+                                            <h3 class="fw-bolder m-0">Ajouter un document</h3>
+                                           {% if form is defined  %}
+                                        </div>
+                                        {{ form_start(form, {'attr': {'idlead': 'question_id'}}) }}
+                                        
+
+                                        <div class="row mb-6">
+							
+                                            {{ form_label(form.nom, "Télécharger :", {'label_attr': {'class':"col-lg-4 col-form-label  fw-bold fs-6"}}) }}
+                                            
+                                            <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                                {{ form_widget(form.nom, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+                                                {{ form_errors(form.nom) }}
+                
+                                        </div>
+                                        </div>
+                                        <div class="row mb-6">
+							
+                                            {{ form_label(form.titre, "Titre :", {'label_attr': {'class':"col-lg-4 col-form-label  fw-bold fs-6"}}) }}
+                                            
+                                            <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                                {{ form_widget(form.titre, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+                                                {{ form_errors(form.titre) }}
+                
+                                        </div>
+                                        </div>
+                                        <div style="display:none;">{{ form_row(form.lien)}}</div>
+                                         
+                                   <div style="display:none;">{{ form_row(form.lead)}}</div>
+       
+                                        
+			   
+			<div class="card-footer d-flex justify-content-end py-6 px-9">
+				<button type="reset" class="btn btn-light btn-active-light-primary me-2">Annuler</button>
+                
+               
+
+
+			    <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit" >
+				Ajouter
+				</button>
+			</div>
+			
+					{# Fermeture de la balise <form> du formulaire HTML #}
+					{{ form_end(form) }}
+                                        </div>
+
+                    {% endif %}
+
+
+									</div>
+									<!--end::Card body-->
+							 </di>
+ 				 
+				</div>
+				</div>
+				</div>
+				</div>
+ 
+ 	 
+
+
+ 	{{ include('layout/pagination.html.twig') }}
+						<script>
+							$("#kt_datatable_example_5").DataTable({
+ "language": {
+        "lengthMenu": "Afficher _MENU_",
+        "sSearch":        "Rechercher:",
+     
+        
+        "sLengthMenu":    "Mostrar _MENU_ registros",
+        "sZeroRecords":   "No se encontraron resultados",
+        "sEmptyTable":    "Pas de données pour cette liste",
+        
+         "sInfo":          "Affichage de _START_ à _END_ sur un total de _TOTAL_ enregistrements",
+         "oPaginate": {
+           
+            "sNext":    "Suivant",
+            "sPrevious": "Précédent"
+        }     
+     
+ },
+ "dom":
+  "<'row'" +
+  "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
+  "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+  ">" +
+
+  "<'table-responsive'tr>" +
+
+  "<'row'" +
+  "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+  "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+  ">"
+});
+</script>
+
+<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			var theHREF;
+			$(".confirmModalLink").click(function(e) {
+					e.preventDefault();
+					theHREF = $(this).attr("href");
+					console.log(theHREF);
+					$("#kt_modal_1").modal("show");
+				});
+
+				$("#confirmModalNo").click(function(e) {
+					$("#kt_modal_1").modal("hide");
+				});
+
+				$("#confirmModalYes").click(function(e) {
+				//	window.location.href = theHREF;
+					$('#myform'). attr('action', theHREF);
+
+					document.getElementById("myform").submit();
+				});
+
+		});
+
+</script> 
+  
+  
+{% endblock %} 
+

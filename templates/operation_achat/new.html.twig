@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New OperationAchat{% endblock %}
+
+{% block body %}
+    <h1>Create new OperationAchat</h1>
+
+    {{ include('operation_achat/_form.html.twig') }}
+
+    <a href="{{ path('operation_achat_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Ajouter Fabriquant' %}
+{% set P_page_title = 'Liste Fabriquants ' %}
+{% set P_path = '/fabriquant' %}
+{# {% set IsChild = True %} #}
+
+ 
+{% block body %}
+    <!--begin::Body-->
+    <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+    <!--begin::Main-->
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="page flex-row flex-column-fluid">
+
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                  
+                    <!--begin::Post-->
+                    <div class="post d-flex flex-column-fluid" id="kt_post">
+                        <!--begin::Container-->
+                        <div id="kt_content_container" class="container-xxl">
+
+                            <!--begin::Basic info-->
+                            <div class="card mb-5 mb-xl-10">
+
+                                <!--begin::Card title-->
+
+                                <!--end::Card title-->
+
+                                <div id="kt_account_settings_profile_details" class="collapse show">
+                                    <div id="kt_account_settings_profile_details" class="collapse show">
+
+                                        {{ form_start(form, {'attr': {'class': 'form fv-plugins-bootstrap5 fv-plugins-framework needs-validation" ' ,
+                                                                 novalidate : 'novalidate' } 
+                                                      }) 
+                                                     
+                                    }}	<div class="row mb-6">
+                                             <div class="col-sm-4">
+                                               {{ form_row(form.actifcrm, {"label":"Actif - CRM"}) }}
+                                              </div>
+                                            <div class="col-sm-4">
+
+                                            {{ form_row(form.actifservice, {"label":"Actif - Page Services"}) }}
+                                            </div>
+                                            <div class="col-sm-4">
+
+
+                                            {{ form_row(form.actifaccueil, {"label":"Actif - Page d'accueil"}) }}
+                                            </div>
+                                        </div>
+                                        <div class="row mb-6">
+												{{ form_label(form.nom, "Nom :", {'label_attr': {'class':"col-lg-4 col-form-label fw-bold fs-6"}}) }}
+
+                                                <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                                {{ form_widget(form.nom)}}
+                                                {{ form_errors(form.nom)}}
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-6">
+												{{ form_label(form.lien, "Lien :", {'label_attr': {'class':"col-lg-4 col-form-label fw-bold fs-6"}}) }}
+
+                                                <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                                {{ form_widget(form.lien)}}
+                                                {{ form_errors(form.lien)}}
+
+                                                 </div>
+                                        </div>
+                                        <div class="row mb-6">
+												{{ form_label(form.description, "Description :", {'label_attr': {'class':"col-lg-4 col-form-label fw-bold fs-6"}}) }}
+
+                                                <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                                {{ form_widget(form.description)}}
+                                                {{ form_errors(form.description)}}
+
+                                                 </div>
+                                        </div>
+                                        <div class="row mb-6">
+												{{ form_label(form.media, "Media :", {'label_attr': {'class':"col-lg-4 col-form-label fw-bold fs-6 required"}}) }}
+
+                                            <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                                {{ form_widget(form.media)}}
+                                                {{ form_errors(form.media)}}
+                                            </div>
+                                        </div>
+
+                                       </div>
+
+
+                                            <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                                <button type="reset" class="btn btn-light btn-active-light-primary me-2"><a href="{{path("fabriquant")}}"> Annuler</a></button>
+                                                <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">
+                                                
+                                                Ajouter
+                                                
+                                                </button>
+                                            </div>
+
+                                            {# Fermeture de la balise <form> du formulaire HTML #}
+                                            {{ form_end(form) }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--end::Basic info-->
+                    
+
+                            <!--end::Modals-->
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Post-->
+                </div>
+                <!--end::Content-->
+    
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Root-->
+ 
+  
+     
+    </body>
+{% endblock %}

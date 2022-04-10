@@ -1,0 +1,1104 @@
+
+{% extends 'base.html.twig' %}
+	{% if isModification %}
+{% set page_title = 'Modification Véhicule' %}
+{% else %}
+{% set page_title = 'Ajouter Véhicule' %}
+{% endif %}
+
+{% set P_page_title = 'Liste Véhicules  ' %}
+{% set P_path = '/vehicule' %}
+
+
+{% block body %}
+
+
+
+
+
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page flex-row flex-column-fluid">
+				<!--begin::Aside-->
+				
+				<!--end::Aside-->
+				<!--begin::Wrapper-->
+				<div>
+		 
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						
+						<!--begin::Post-->
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-xxl">
+								<!--begin::Navbar-->
+								{% if isModification %}
+								<div class="card mb-5 mb-xl-10">
+									
+									<div class="card-body pt-9 pb-0">
+										<!--begin::Details-->
+										<div class="d-flex flex-wrap flex-sm-nowrap mb-3">
+											<!--begin: Pic-->
+											<div class="me-7 mb-4">
+												<div class="position-relative">
+                                                   
+                                                        <img src="{{asset('/media/logos/' ~ vehicules.media.nom )}}" alt="Photo-Principale" width="65%" >
+                                                       
+                                                   
+													<div class="position-absolute translate-middle  mb-6  rounded-circle border border-4 border-white h-20px w-20px"></div>
+												</div>
+											</div>
+											<!--end::Pic-->
+											<!--begin::Info-->
+											<div class="flex-grow-1">
+												<!--begin::Title-->
+												<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+													<!--begin::User-->
+													<div class="d-flex flex-column">
+														<!--begin::Name-->
+														<div class="d-flex align-items-center mb-2">
+															<a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1"><b>{{vehicules.annee}}.{{vehicules.marque.nom}}.{{vehicules.modele.nom}}.{{vehicules.Couleurexterieur}}</b></a>
+															<a href="#">
+																<!--begin::Svg Icon | path: icons/duotune/general/gen026.svg-->
+															
+																<!--end::Svg Icon-->
+															</a>
+															
+														</div>
+                                                  
+														<!--end::Name-->
+														<!--begin::Info-->
+														<div class="d-flex flex-wrap fw-bold fs-6 mb-4 pe-2">
+															<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+															<!--begin::Svg Icon | path: icons/duotune/communication/com006.svg-->
+														
+															<!--end::Svg Icon--> {{vehicules.category.nom}}</a>
+														
+														</div>
+														<div class="d-flex flex-wrap fw-bold fs-6 mb-4 pe-2">
+															
+															<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
+															<!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
+														
+															<!--end::Svg Icon-->  {{vehicules.vin}}<br/></a>
+														</div>
+                                                        <div class="d-flex flex-wrap fw-bold fs-6 mb-4 pe-2">
+															
+															<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
+															<!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
+														
+															<!--end::Svg Icon-->    {{vehicules.carproof}}<br/><br/></a>
+														</div>
+														<!--end::Info-->
+													</div>
+													<!--end::User-->
+													
+												</div>
+												<!--end::Title-->
+												<!--begin::Stats-->
+												<div class="d-flex flex-wrap flex-stack">
+													<!--begin::Wrapper-->
+													
+													<!--end::Wrapper-->
+													<!--begin::Progress-->
+													
+													<!--end::Progress-->
+												</div>
+												<!--end::Stats-->
+											</div>
+											<!--end::Info-->
+										</div>
+										<!--end::Details-->
+										<!--begin::Navs-->
+										<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
+											<!--begin::Nav item-->
+											<li class="nav-item mt-2">
+												<a class="nav-link text-active-primary ms-0 me-10 py-5 active" href="{{path("consultation_vehicule",{ 'id' : vehicules.Id})}}">Aperçu</a>
+											</li>
+											<!--end::Nav item-->
+											<!--begin::Nav item-->
+											<li class="nav-item mt-2">
+												<a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{path("edit-vehicule",{ 'id' : vehicules.Id})}}">Information Génerale</a>
+											</li>
+                                            <li class="nav-item mt-2">
+												<a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{path("options_vehicule",{ 'id' : vehicules.Id})}}">Options du Véhicule</a>
+											</li>
+											<!--end::Nav item-->
+											<!--begin::Nav item-->
+											
+											<!--end::Nav item-->
+											
+										</ul>
+										<!--begin::Navs-->
+									</div>
+									
+								</div>
+								{% endif %}
+								<!--end::Navbar-->
+				<div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+				<!--begin::Card title-->
+				<div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+					<!--begin::Card title-->
+					<div class="card-title m-0">
+						{% if isModification %}
+						<h3 class="fw-bolder m-0">Modifier Véhicule</h3>
+												{% else %}
+												<h3 class="fw-bolder m-0">Ajout Véhicule</h3>
+												{% endif %}
+						
+					</div>
+					<!--end::Card title-->
+				</div>
+				<!--end::Card title-->
+			
+		<div id="kt_account_settings_profile_details" class="collapse show">
+			<div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show">
+			
+				<div id="kt_account_settings_profile_details" class="collapse show">
+					{{ form_start(form, {'attr': {'class': 'form fv-plugins-bootstrap5 fv-plugins-framework'}}) }}
+			
+				 
+				                	<div class="col-4 ">
+									<div class="col-lg-8 fv-row fv-plugins-icon-container">
+										
+										{{form_row(form.actif, {"label":"Actif "}) }}
+									</div>
+									
+								
+									
+									
+								</div>
+					<div class="row mb-4">
+							<div class="col mb-4">		
+								{{ form_label(form.stock, "Stock  :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+								
+								<div class="col-lg-8 fv-row fv-plugins-icon-container">
+									{{ form_widget(form.stock, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+								</div>
+							</div>
+
+								<div class="col mb-4">
+									
+									{{ form_label(form.vin, "Vin  :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+									
+									<div class="col-lg-8 fv-row fv-plugins-icon-container">
+										{{ form_widget(form.vin, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+									</div>
+								</div>
+								
+								<div class="col mb-4">
+									
+									{{ form_label(form.marque, "Marque :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+									
+									<div class="col-lg-8 fv-row fv-plugins-icon-container">
+										{{ form_widget(form.marque, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+									</div>
+								</div>
+                    </div>    
+					<div class="row mb-12">
+									<div class="col mb-4">
+										
+										{{ form_label(form.modele, "Modéle :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+										
+										<div class="col-lg-8 fv-row fv-plugins-icon-container">
+											{{ form_widget(form.modele, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+										</div>
+									</div>
+									<div class="col mb-4">
+										
+										{{ form_label(form.category, "Catégorie :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+										
+										<div class="col-lg-8 fv-row fv-plugins-icon-container">
+											{{ form_widget(form.category, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+										</div>
+									</div>
+                               
+								
+									<div class="col mb-4">
+										
+										{{ form_label(form.status, "Status :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+										
+										<div class="col-lg-8 fv-row fv-plugins-icon-container">
+											{{ form_widget(form.status, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+										</div>
+									</div>
+                    </div>
+					<div class="row mb-12">
+										<div class="col mb-4">
+											
+											{{ form_label(form.km, "Km :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+											
+											<div class="col-lg-8 fv-row fv-plugins-icon-container">
+												{{ form_widget(form.km, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+											</div>
+										</div>
+									
+										<div class="col mb-4">
+											
+											{{ form_label(form.Couleurexterieur, "Couleur Extérieur :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+											
+											<div class="col-lg-8 fv-row fv-plugins-icon-container">
+												{{ form_widget(form.Couleurexterieur, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+										</div>
+										</div>
+
+										<div class="col mb-4">
+											
+											{{ form_label(form.couleurinterieur, "Couleur Intérieur :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+											
+											<div class="col-lg-8 fv-row fv-plugins-icon-container">
+												{{ form_widget(form.couleurinterieur, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+										</div>
+					                </div>
+						</div>			
+
+						<div class="row mb-4">
+									<div class="col mb-4">
+										
+										{{ form_label(form.carrosserie, "Carrosserie :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+										
+										<div class="col-lg-8 fv-row fv-plugins-icon-container">
+											{{ form_widget(form.carrosserie, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+										</div>
+									</div>
+									<div class="col mb-4">
+										
+										{{ form_label(form.transmission, "Transmission :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+										
+										<div class="col-lg-8 fv-row fv-plugins-icon-container">
+											{{ form_widget(form.transmission, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+										</div>
+									</div>
+									
+									<div class="col mb-4">
+										
+										{{ form_label(form.Carburant, "Carburant :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+										
+										<div class="col-lg-8 fv-row fv-plugins-icon-container">
+											{{ form_widget(form.Carburant, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+										</div>
+									</div>
+                        </div>
+
+						   <div class="row mb-12">
+											<div class="col mb-4">
+												
+												{{ form_label(form.traction, "Traction :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+												
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													{{ form_widget(form.traction, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+												</div>
+											</div>
+											<div class="col mb-4">
+												
+												{{ form_label(form.cylindres, "Cylindres :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+												
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													{{ form_widget(form.cylindres, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+												</div>
+											</div>
+											<div class="col mb-4">
+												
+												{{ form_label(form.moteur, "Moteur :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+												
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													{{ form_widget(form.moteur, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+												</div>
+											</div>
+							</div>			
+							
+
+							<div class="row mb-12">
+											<div class="col mb-4">
+												
+												{{ form_label(form.portes, "Portes :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+												
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													{{ form_widget(form.portes, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+												</div>
+											</div>
+											<div class="col mb-4">
+												
+												{{ form_label(form.Passagers, "Passagers :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+												
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													{{ form_widget(form.Passagers, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+												</div>
+											</div>
+
+											<div class="col mb-4">
+												
+												{{ form_label(form.prixdetail, "Prix Détail :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+												
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													{{ form_widget(form.prixdetail, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+												</div>
+											</div>
+											
+							</div>				
+							<div class="row mb-12">
+										
+
+												<div class="col-4 ">
+													<div class="col-lg-8 fv-row fv-plugins-icon-container">
+														
+														{{form_row(form.liquidation, {"label":"Liquidation : "}) }}
+													</div>
+													
+												
+													
+													
+												</div>
+											<div class="col mb-4">
+												
+												{{ form_label(form.prixwholesale, "	Prix Wholesale:", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+												
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													{{ form_widget(form.prixwholesale, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+												</div>
+											</div>
+											
+
+											<div class="col mb-4">
+												
+												{{ form_label(form.conditions, "Conditions :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+												
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													{{ form_widget(form.conditions, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+												</div>
+											</div>
+											
+											
+											
+
+											
+							</div>
+							
+							<div class="row mb-12">
+								<div class="col mb-4">
+												
+									{{ form_label(form.utilisateur, "Compagnie :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+									
+									<div class="col-lg-8 fv-row fv-plugins-icon-container">
+										{{ form_widget(form.utilisateur, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+									</div>
+								</div>
+								<div class="col mb-4">
+													
+									{{ form_label(form.annee, "Ajouter Année :", {'label': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+									
+									<div class="col-lg-4 fv-row fv-plugins-icon-container">
+										{{ form_widget(form.annee, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+									</div>
+								</div>
+								
+								<div class="col mb-4">
+												
+									{{ form_label(form.numinventaire, "	Numéro de l'inventaire:", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-4"}}) }}
+									
+									<div class="col-lg-8 fv-row fv-plugins-icon-container">
+										{{ form_widget(form.numinventaire, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+									</div>
+								</div>
+								
+								
+								
+								
+						    </div>
+							
+							<span><h4>Media</h4></span>	
+							<div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>		
+							
+							<div class="col mb-4">
+													
+								{{ form_label(form.media, "Ajouter Photo Principale :", {'label': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+								
+								<div class="col-lg-12 fv-row fv-plugins-icon-container">
+									{{ form_widget(form.media, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+								</div>
+							</div>
+							{% if isModification %}
+								<h2>Photo Principale</h2>
+							
+								<div>
+									<img src="{{asset('/media/logos/' ~ vehicules.media.nom )}}" alt="Photo-Principale" width="150" >
+									
+								</div>
+								
+							{% endif %}
+						
+							<div class="col mb-4">
+													
+								{{ form_label(form.galerie, "Ajouter galeries des photos :", {'label': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+								
+								<div class="col-lg-12 fv-row fv-plugins-icon-container">
+									{{ form_widget(form.galerie, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+								</div>
+							</div>
+							{% if isModification %}
+								<h2>Galerie</h2>
+								<div class="row">
+								{% for galerie in vehicules.galerie %}
+								<div class="col-4">
+									
+									
+								  
+
+									<img src="{{asset('/media/galerie/' ~ galerie.nom )}}" alt="Photo" width="150" >
+
+
+										<a href="{{ path('galerie_delete_image', {id: galerie.id}) }}"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="50" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+											<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+										</svg></a>
+									
+
+								
+							   </div>
+								{% endfor %}
+							</div>
+							{% endif %}
+							
+						<div class="row mb-12"> <span><h4>Options</h4></span>
+	                     <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+							   <div class="col-4 ">
+									<div class="col-lg-8 fv-row fv-plugins-icon-container">
+										{{form_row(form.Aileronarriere, {"label":"Aileron arrière "}) }}
+									</div>
+									
+								
+									
+									
+								</div>
+								
+
+							
+								<div class="col-4 ">
+									<div class="col-lg-8 fv-row fv-plugins-icon-container">
+										
+										{{form_row(form.antipatinage, {"label":"Antipatinage "}) }}
+									</div>
+									
+								
+									
+									
+								</div>
+								<div class="col-4 ">
+									<div class="col-lg-8 fv-row fv-plugins-icon-container">
+										{{form_row(form.chargeurdc, {"label":"Changeur CD"}) }}
+									</div>
+									
+							
+									
+									
+								</div>
+					    </div>
+
+						<div class="row mb-12	"> 
+							<div class="col-4 ">
+								 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+									
+									 {{form_row(form.climatisationautomatique, {"label":"Climatisation automatique "}) }}
+								 </div>
+								 
+							
+								 
+								 
+							 </div>
+
+						 
+							 <div class="col-4 ">
+								 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+									{{form_row(form.coussingonflablepouleconducteur, {"label":"Coussin gonflable pour le conducteur "}) }}
+									
+								 </div>
+								
+								 
+								 
+							 </div>
+							 <div class="col-4 ">
+								 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+									 
+									 {{form_row(form.crochetremorquagearriere, {"label":"Crochet remorquage arrière"}) }}
+								 </div>
+								 
+
+						
+							 </div>
+							
+					 </div>
+					<div class="row mb-12	"> 
+						<div class="col-4 ">
+							 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+								
+								 {{form_row(form.detecteurdepluie, {"label":"Détecteur de pluie"}) }}
+							 </div>
+							 
+							 
+						 </div>
+
+					 
+						 <div class="col-4 ">
+							 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+								
+								 {{form_row(form.Essuieglacesintermittentsavitessevariable, {"label":"Essuie-glaces intermittents à vitesse variable "}) }}
+								 
+							 </div>
+							 
+							
+							 
+						 </div>
+						 <div class="col-4 ">
+							 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+								
+								 {{form_row(form.inclinaisonelectriquetoitouvrantcoulissant, {"label":"Inclinaison électrique / toit ouvrant coulissant "}) }}
+							 </div>
+			
+
+					
+						 </div>
+						
+				 </div>
+				 <div class="row mb-12	"> 
+					<div class="col-4 ">
+						 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						
+							 {{form_row(form.miroirschauffants, {"label":"Miroirs chauffants "}) }}
+						 </div>
+	
+					 </div>
+
+				 
+					 <div class="col-4 ">
+						 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+							
+							 {{form_row(form.ordinateurdebord, {"label":"Ordinateur de bord "}) }}
+						 </div>
+				
+						 
+					 </div>
+					 <div class="col-4 ">
+						 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+							 {{form_row(form.pharesantibrouillard, {"label":"Phares anti-brouillard"}) }}
+						 </div>
+
+
+				
+					 </div>
+					
+			 </div>
+			 <div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.radiosatellite, {"label":"Radio satellite "}) }}
+					 </div>
+	 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						
+						 {{form_row(form.servodirection, {"label":"Servo-direction  "}) }}
+					 </div>
+
+					 
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.siegesarriereschauffants, {"label":"Sièges arrières chauffants  "}) }}
+					 </div>
+
+
+			
+				 </div>
+				
+		    </div> 
+			
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+					
+						 {{form_row(form.Sigeschauffants, {"label":"Sièges chauffants"}) }}
+					 </div>
+			
+					 
+					 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+					
+						 {{form_row(form.sonardestationnementarriere, {"label":"Sonar de stationnement arrière"}) }}
+					 </div>
+
+					 
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.systemealarme, {"label":"Système d'alarme"}) }}
+					 </div>
+
+
+			
+				 </div>
+				
+		    </div> 
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.tacheometre, {"label":"Tachéomètre "}) }}
+					 </div>
+
+					 
+					 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.vitreselectriques, {"label":"Vitres électriques"}) }}
+					 </div>
+
+					 
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.airclimatise, {"label":"Air climatisé"}) }}
+					 </div>
+
+				 </div>
+				
+		    </div> 
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.bluetooth, {"label":"Bluetooth"}) }}
+					 </div>
+ 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.climatisation2zones, {"label":"Climatisation 2 zones "}) }}
+					 </div>
+	 
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.commandesauvolant, {"label":"Commandes au volant "}) }}
+					 </div>
+
+				 </div>
+				
+		    </div> 
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.coussingonflablepourlepassager, {"label":"Coussin gonflable pour le passager "}) }}
+					 </div>
+		 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+						 {{form_row(form.degivreurarriere, {"label":"Dégivreur arrière "}) }}
+					 </div>
+
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.enjoliveursderoues, {"label":"Enjoliveurs de roues "}) }}
+					 </div>
+	
+
+			
+				 </div>
+				
+		    </div> 
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.freinsabc, {"label":"Freins ABS "}) }}
+					 </div>
+
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.lecteurdc, {"label":"Lecteur DC "}) }}
+					 </div>
+					 
+
+					 
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.miroirselectriques, {"label":"Miroirs électriques"}) }}
+					 </div>
+
+
+			
+				 </div>
+				
+		    </div> 
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.ouverturesducoffreadistance, {"label":"Ouverture du coffre à distance"}) }}
+					 </div>
+ 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.pharesxenon, {"label":"	Phares Xénon "}) }}
+						 
+					 </div>
+
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.regulateurdevistesse, {"label":"Régulateur de vitesse "}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.siegechauffantconducteur, {"label":"Siège chauffant conducteur"}) }}
+					 </div>
+
+					 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.siegesarrierestraversables, {"label":"Sièges arrières traversables"}) }}
+					 </div>
+
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.siegescuire, {"label":"Sièges cuir "}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.sunmoonroof, {"label":"Sun / moon roof "}) }}
+					 </div>
+	 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.systemedenavigation, {"label":"Système de navigation "}) }}
+					 </div>
+	 
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.tapisdesolavant, {"label":"Tapis de sol avant "}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.vitresteintes, {"label":"Vitres teintés  "}) }}
+					 </div>
+
+					 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.amfmsterio, {"label":"AM/FM stéréo  "}) }}
+					 </div>
+
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.cameraderecul, {"label":"Caméra de recul"}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.climatisationarriere, {"label":"Climatisation arrière"}) }}
+					 </div>
+
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.controledestabilite, {"label":"Contrôle de stabilité "}) }}
+					 </div>
+
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.cousinsgonflableslateraux, {"label":"Coussins gonflables latéraux"}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.demarragesanscle, {"label":"Démarrage sans clé"}) }}
+					 </div>
+
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.entreesanscle, {"label":"Entrée sans clé"}) }}
+					 </div>
+
+					 
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.freinsassistes, {"label":"Freins assistés"}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.lecteurmp, {"label":"Lecteur MP3"}) }}
+					 </div>
+
+					 
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.miroirssignaldecourbeintegre, {"label":"Miroirs signal de courbe intégré"}) }}
+					 </div>
+
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.particulier, {"label":"Particulier"}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.porteselectriques, {"label":"Portes électriques"}) }}
+					 </div>
+
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.serruresdesecuritepourenfant, {"label":"Serrures de sécurité pour enfant"}) }}
+					 </div>
+
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.siegeelectriqueconducteur, {"label":"Siège électrique conducteur"}) }}
+					 </div>
+	
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.siegesbaquets, {"label":"Sièges baquets"}) }}
+					 </div>
+
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.siegesmemoire, {"label":"Sièges mémoire "}) }}
+					 </div>
+	
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.systemeantivol, {"label":"Système antivol "}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+			<div class="row mb-12	"> 
+				<div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.systemesurveillancepressiondespneus, {"label":"Sytème surveillance pression des pneus"}) }}
+					 </div>
+
+				 </div>
+
+			 
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.toitouvrant, {"label":"toit ouvrant"}) }}
+					 </div>
+
+				 </div>
+				 <div class="col-4 ">
+					 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+						{{form_row(form.volantajustable, {"label":"Volant ajustable"}) }}
+					 </div>
+
+				 </div>
+				
+		    </div>
+		
+</div>					
+		
+<span><h4>Financement Véhicule</h4></span>			
+<div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+<div class="row mb-12">
+	
+	
+		
+			<div class="col mb-4">
+								
+				{{ form_label(form.carproof, "Description :", {'label': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+			</div>
+		
+	
+		<div class="col-lg-12 fv-row fv-plugins-icon-container">
+			{{ form_widget(form.carproof, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+		</div>
+</div>
+			<div class="row mb-12">
+				<div class="row mb-6">
+				
+					
+						<div class="col mb-4">
+											
+							{{ form_label(form.financement, "Financement :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+						</div>
+						<div class="col mb-2">
+							
+							{{form_row(form.disponiblefinance, {"label":"Financement Disponible"}) }}
+						
+						
+							
+						</div>
+				 </div>
+					<div class="col-lg-12 fv-row fv-plugins-icon-container">
+						{{ form_widget(form.financement, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+					</div>
+			</div>
+			<div class="row mb-12">
+				<div class="row mb-6">
+				
+					
+						<div class="col mb-4">
+											
+							{{ form_label(form.garentie, "Garentie :", {'label_attr': {'class':"col-lg-6 col-form-label required fw-bold fs-6"}}) }}
+						</div>
+						<div class="col mb-2">
+						
+							{{form_row(form.disponiblegarentie, {"label":"Garentie Disponible"}) }}
+						</div>
+				 </div>
+					<div class="col-lg-12 fv-row fv-plugins-icon-container">
+						{{ form_widget(form.garentie, {'attr': {'class': 'form-control form-control-lg form-control-solid'}}) }}
+					</div>
+			</div>
+			
+
+
+			
+			
+			
+			
+			
+			</div>
+	
+			
+				
+</div>				
+			 
+			
+					{# Génération automatique des champs pas encore écrits.
+					Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfonyy !)
+					et tous les champs cachés (type « hidden »). #}
+				
+					{{ form_rest(form) }}
+								<div class="card-footer d-flex justify-content-end py-6 px-9">
+									<button type="reset" class="btn btn-light btn-active-light-primary me-2">Annuler</button>
+								<button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Ajouter</button>
+								</div>
+			
+					{# Fermeture de la balise <form> du formulaire HTML #}
+		{{ form_end(form) }}
+			</div>
+		</div> 
+		</div>
+			</div>
+		</div>
+			
+</div>
+
+
+
+		
+	
+    
+{% endblock %}

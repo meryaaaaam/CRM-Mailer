@@ -1,0 +1,581 @@
+
+
+
+
+
+
+{% extends 'base.html.twig' %}
+{% set page_title = 'Leads dachat' %}
+{% set P_page_title = '' %}
+{% set P_path = '/leads/' %} 
+
+ 
+{% block body %}
+     <!--begin::Main-->
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        
+       
+  					 
+						<!--begin::Post-->
+
+		
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-xxl">
+								<!--begin::Card-->
+								<div class="card">
+									<!--begin::Card header-->
+									<div class="card-header border-0 pt-6">
+										<div><h1>Liste des Leads d'Achat</h1></div>
+										<!--begin::Card toolbar-->
+										<div class="card-toolbar">
+											<!--begin::Toolbar-->
+											<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+											
+
+												<button type="button" class="btn btn-primary me-3" >  
+													<a href="{{path("leads_index")}}" >	
+												   <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+													 
+														</a>  
+															<a href="{{path("leads_index")}}" style="color:#ffffff;">Afficher tous</a>
+   
+												   <!--end::Svg Icon-->
+												   </button>
+												   <button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_add_user">
+												   <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+																								   <span class="svg-icon svg-icon-2">
+													   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														   <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
+													   </svg>
+												   </span>
+												   <!--end::Svg Icon-->Filter</button>
+
+
+
+
+
+												
+												<!--end::Export-->
+												<!--begin::Add user-->
+												<button type="button" class="btn btn-primary" >
+										           <a href="{{path("leads_new")}}" >
+												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+											      	<span class="svg-icon svg-icon-2">
+													  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+														<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+													  </svg>
+												    </span>
+
+										          </a>
+
+												  <a href="{{path("leads_new")}}" style="color:#ffffff;">Ajouter</a>
+												<!--end::Svg Icon-->
+                                                  
+											     </button>
+											   
+											   
+											</div>
+											
+										
+										
+										<!--end::Card toolbar-->
+									</div>
+									<!--end::Card header-->
+									<!--begin::Card body-->
+									<div class="card-body py-4">
+                                <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_products_table">
+											<!--begin::Table head-->
+											<thead>
+												<!--begin::Table row-->
+												<tr class="fw-bolder fs-6 text-gray-800 px-7">
+												
+													<th class="min-w-125px sorting" >Nom</th>
+													<th class="min-w-200px sorting" >Status Véhicule</th>
+													<th class="min-w-125px sorting" >Status Lead</th>
+													<th class="min-w-125px sorting" >Courriel</th>
+													<th class="min-w-125px sorting" >Date Création</th>
+													<th class="min-w-125px sorting" >Actions</th>
+
+ 
+
+												</tr>
+												<!--end::Table row-->
+											</thead>
+											<!--end::Table head-->
+											<!--begin::Table body-->
+											<tbody class="fw-bold text-gray-600">
+
+												<!--begin::Table row-->
+												{% for lead in leads %}
+												
+												<tr>
+													
+														<td>
+															{{lead.nom}} <br/>
+
+															<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+																<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+															  </svg>
+                                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_add_user" data-id="{{lead.id}}">																 
+																	
+																
+											
+																<span class="svg-icon svg-icon-3">
+																<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+																			<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+																			<path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+																		  </svg>
+																</span>
+																<!--end::Svg Icon-->
+
+											                    </a>
+															  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																<path opacity="0.3" d="M5.78001 21.115L3.28001 21.949C3.10897 22.0059 2.92548 22.0141 2.75004 21.9727C2.57461 21.9312 2.41416 21.8418 2.28669 21.7144C2.15923 21.5869 2.06975 21.4264 2.0283 21.251C1.98685 21.0755 1.99507 20.892 2.05201 20.7209L2.886 18.2209L7.22801 13.879L10.128 16.774L5.78001 21.115Z" fill="black"></path>
+																<path d="M21.7 8.08899L15.911 2.30005C15.8161 2.2049 15.7033 2.12939 15.5792 2.07788C15.455 2.02637 15.3219 1.99988 15.1875 1.99988C15.0531 1.99988 14.92 2.02637 14.7958 2.07788C14.6717 2.12939 14.5589 2.2049 14.464 2.30005L13.74 3.02295C13.548 3.21498 13.4402 3.4754 13.4402 3.74695C13.4402 4.01849 13.548 4.27892 13.74 4.47095L14.464 5.19397L11.303 8.35498C10.1615 7.80702 8.87825 7.62639 7.62985 7.83789C6.38145 8.04939 5.2293 8.64265 4.332 9.53601C4.14026 9.72817 4.03256 9.98855 4.03256 10.26C4.03256 10.5315 4.14026 10.7918 4.332 10.984L13.016 19.667C13.208 19.859 13.4684 19.9668 13.74 19.9668C14.0115 19.9668 14.272 19.859 14.464 19.667C15.3575 18.77 15.9509 17.618 16.1624 16.3698C16.374 15.1215 16.1932 13.8383 15.645 12.697L18.806 9.53601L19.529 10.26C19.721 10.452 19.9814 10.5598 20.253 10.5598C20.5245 10.5598 20.785 10.452 20.977 10.26L21.7 9.53601C21.7952 9.44108 21.8706 9.32825 21.9221 9.2041C21.9737 9.07995 22.0002 8.94691 22.0002 8.8125C22.0002 8.67809 21.9737 8.54505 21.9221 8.4209C21.8706 8.29675 21.7952 8.18392 21.7 8.08899Z" fill="black"></path>
+															</svg>
+															<br>
+														
+														</td><td>
+															{{lead.statusvehicule}}
+																	</td>
+																	
+														
+														<td>
+															
+															{% if lead.Statusleads.nom == "En attente" %}
+															
+														<div class="badge badge-light-primary">{{lead.Statusleads.nom}}</div>
+
+														{% elseif lead.Statusleads.nom == "Livrés" %}
+														<div class="badge badge-light-warning">{{lead.Statusleads.nom}}</div>
+														{% elseif lead.Statusleads.nom == "Transférés" %}
+														<div class="badge badge-light-danger">{{lead.Statusleads.nom}}</div>
+														{% elseif lead.Statusleads.nom == "Acceptés" %}
+														<div class="badge badge-light-success">{{lead.Statusleads.nom}}</div>
+														{% endif %}
+														</td><td>
+															
+															<a href="mailto:{{lead.courriel}}" class="text-muted me-2 fs-7 fw-bold">{{lead.courriel}}</a>	
+														
+														</td><td>
+														{{ lead.datecreation ? lead.datecreation|date('Y-m-d') : '' }}
+														</td>
+													
+															<td>
+																				
+																<a href="{{path("leads_show",{ 'id' : lead.Id})}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																	<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+																	<span class="svg-icon svg-icon-3">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="black" />
+																			<path d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z" fill="black" />
+																		</svg>
+																	</span>
+																	<!--end::Svg Icon-->
+																</a>
+																
+														
+																	
+																
+																	
+																
+										<form  method="POST" style="display:inline-block"  id="myform" action="{{path('leads_delete', {'id' : lead.id})}}" onsubmit="return">
+																	
+																
+																
+																	<input type="hidden" name="_method" value="delete">
+																	<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ lead.id)}}">
+										
+																
+																	
+																	
+												<a href="{{path('leads_delete', {'id' : lead.id})}}" class="confirmModalLink btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																	
+																	
+											
+																	<span class="svg-icon svg-icon-3">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black" />
+																			<path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black" />
+																			<path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black" />
+																		</svg>
+																	</span>
+																	<!--end::Svg Icon-->
+
+												</a>
+												</form>
+																	
+																					<div class="modal fade" tabindex="-1" id="kt_modal_1">
+																						<div class="modal-dialog">
+																							<div class="modal-content">
+																								<div class="modal-header">
+																									<h5 class="modal-title">Confirmation de suppresion</h5>
+																					
+																									
+																									<!--begin::Close-->
+																									<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+																										<span class="svg-icon svg-icon-2x"></span>
+																									</div>
+																									<!--end::Close-->
+																								</div>
+																					
+																								<div class="modal-body">
+																									<p>Voulez-vous vraiment supprimer cet Lead?</p>
+																								</div>
+																					
+																								<div class="modal-footer">
+																									<button type="button" class="btn btn-light" data-bs-dismiss="modal" id="confirmModalNo">Annuler</button>
+																									<button type="submit"  class="btn btn-primary" id="confirmModalYes">Supprimer</button>
+																								
+																							</div>
+																						</div>
+																						</div>
+																					</div>
+
+
+																		
+																	
+															
+															</div></td> 
+														</td>
+													
+
+
+											
+ 
+
+
+
+
+													
+													
+													
+													</tr>
+														
+														
+												
+			{% endfor %}
+											
+											</tbody>
+											<!--end::Table body-->
+										</table>
+											<!--end::Table-->
+									</div>
+									<!--end::Card body-->
+							 </di>
+ 				 
+				</div>
+				</div>
+				</div>
+				</div>
+ 
+ 	 
+
+ <div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
+	<!--begin::Modal dialog-->
+	<div class="modal-dialog modal-dialog-centered modal-xl">
+		<!--begin::Modal content-->
+		<div class="modal-content">
+			<!--begin::Modal header-->
+			<div class="modal-header" id="kt_modal_add_user_header">
+				<!--begin::Modal title-->
+				<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
+					<!--begin::Nav item-->
+					
+					<!--end::Nav item-->
+					<!--begin::Nav item-->
+					<li class="nav-item mt-2">
+					
+						<h2 class="fw-bolder">Options de filtrage</h2>
+					</li>
+					<!--end::Nav item-->
+				 
+					<!--begin::Nav item-->
+
+					<!--end::Nav item-->
+
+				</ul>
+				<!--end::Modal title-->
+				<!--begin::Close-->
+				<div id="closeNote" class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close" data-bs-dismiss="modal" aria-label="Close">
+					<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+					<span class="svg-icon svg-icon-1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+							<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+							<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+						</svg>
+					</span>
+					<!--end::Svg Icon-->
+				</div>
+				<!--end::Close-->
+			</div>
+			<!--end::Modal header-->
+			<!--begin::Modal body-->
+			<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+															<!--begin::Form-->
+ 															{{  form_start(form) }}
+																<!--begin::Scroll-->
+																<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
+																 
+																 <div class="row">
+																	<!--begin::Input group-->
+
+																	 <div class="col-3 mb-7">
+															             <!--begin::Form-->
+																		
+ 															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+																            	<!--begin::Label-->
+																	          {# <label class="fs-6 fw-bold form-label mb-2"> Nom </label>  #}
+																				  {{ form_row(form.nom) }}
+																				   
+																                    <!--end::Input-->
+															                </div>
+																 
+														        	</div>
+
+													                <div class="col-3 mb-7   ">
+															             <!--begin::Form-->
+ 															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+																            	<!--begin::Label-->
+																	          {# <label class="fs-6 fw-bold form-label mb-2"> Téléphone </label> #}
+																                <!--end::Label-->
+																                	<!--begin::Input-->
+
+																				  {{ form_row(form.telephone) }}
+																	               
+															                 </div>
+																		 
+														        	</div>
+															              
+																	<div  class="col-3 mb-7">
+
+                                                                      
+															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+ 																	             <!--begin::Label-->
+																	            {# <label class=" fs-6 fw-bold form-label mb-2">Courriel</label> #}
+																                	<!--end::Label-->
+
+														                          {{ form_row(form.courriel) }}
+																			 </div>
+													 
+														            </div>
+
+																		<div class="col-3 mb-7 ml-5">
+																		<!--begin::Label-->
+																		<label class="  fw-bold fs-6 mb-5">rappel  </label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																	 
+																		{{ form_widget(form.rappel) }}
+																	</div>
+														                  <!--end::Modal body-->
+																</div>
+
+															<div class="row">
+															        <div  class="col-3 mb-7">
+ 															            	<!--begin::Input group-->
+															                
+ 																	             <!--begin::Label-->
+																	            <label class=" fs-6 fw-bold form-label mb-2">Agent</label>
+																                	<!--end::Label-->
+																                   	<!--begin::Input-->
+																               
+													                               {{ form_row(form.agent) }}
+																                	<!--end::Input-->
+ 																	
+																     	    
+																
+																              <!--end::Actions-->
+															    
+															                 <!--end::Form-->
+														            </div>
+
+																	 <div  class="col-3 mb-7">
+
+ 															            	<!--begin::Input group-->
+															               	<div class="fv-row mb-10">
+ 																	             <!--begin::Label-->
+																	            <label class=" fs-6 fw-bold form-label mb-2">Vendeur</label>
+																                	<!--end::Label-->
+																                   	<!--begin::Input-->
+																                {{ form_row(form.vendeurr) }}
+                                                                                	 
+																     	    </div>
+														            </div>
+
+
+																	<div class="col-3 mb-7 ml-5">
+																		<!--begin::Label-->
+																		<label class="  fw-bold fs-6 mb-5">partenaire  </label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																	 
+																		{{ form_row(form.partenaire) }}
+																	</div>
+
+																	<div class="col-3 mb-7 ml-5">
+																		<!--begin::Label-->
+																		<label class="  fw-bold fs-6 mb-5">concessionaire  </label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																	 
+																		{{ form_row(form.concessionnaire) }}
+																	</div>
+																	</div>
+
+
+                                                              <div class="row">
+																
+	                                                              <div class="col-3 mb-7 ml-5">
+																		<!--begin::Label-->
+																		<label class="  fw-bold fs-6 mb-5">Marchand  </label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																	 
+																		{{ form_widget(form.marchand) }}
+																	</div>
+
+																	  <div class="col-3 mb-7 ml-5">
+																		<!--begin::Label-->
+																		<label class="  fw-bold fs-6 mb-5">Administrateur  </label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																	 
+																		{{ form_widget(form.administrateur) }}
+																	</div>
+
+																	 <div class="col-3 mb-7 ml-5">
+																		<!--begin::Label-->
+																		<label class="  fw-bold fs-6 mb-5">datecreation  </label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																	 
+																		{{ form_widget(form.datecreation) }}
+																	</div>
+
+
+																	 <div class="col-3 mb-7 ml-5">
+																		<!--begin::Label-->
+																		<label class="  fw-bold fs-6 mb-5">datecreationend  </label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																	 
+																		{{ form_widget(form.datecreationend) }}
+																	</div>
+																	
+
+                                                               
+														    </div>
+
+															 </div>
+																<!--end::Scroll-->
+															 <div class="row">
+																	{# <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button> #}
+																	<div class="col-6">
+																	  {{ form_row(form.Reset) }}
+																	  
+                                                                    </div>  
+		                                                            <div class="col-6">
+																	 {{ form_row(form.Submit) }} 
+																	 </div>
+
+
+																</div>
+															    {{ form_end(form) }}
+
+
+															<!--end::Form-->
+														</div>
+			<!--end::Modal body-->
+		</div>
+		<!--end::Modal content-->
+	</div>
+	<!--end::Modal dialog-->
+</div>
+
+
+ 	{{ include('layout/pagination.html.twig') }}
+						<script>
+							$("#kt_ecommerce_products_table").DataTable({
+ "language": {
+        "lengthMenu": "Afficher _MENU_",
+        "sSearch":        "Rechercher:",
+     
+        
+        "sLengthMenu":    "Mostrar _MENU_ registros",
+        "sZeroRecords":   "No se encontraron resultados",
+        "sEmptyTable":    "Pas de données pour cette liste",
+        
+         "sInfo":          "Affichage de _START_ à _END_ sur un total de _TOTAL_ enregistrements",
+         "oPaginate": {
+           
+            "sNext":    "Suivant",
+            "sPrevious": "Précédent"
+        }     
+     
+ },
+ "dom":
+  "<'row'" +
+  "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
+  "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+  ">" +
+
+  "<'table-responsive'tr>" +
+
+  "<'row'" +
+  "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+  "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+  ">"
+});
+</script>
+
+<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			var theHREF;
+			$(".confirmModalLink").click(function(e) {
+					e.preventDefault();
+					theHREF = $(this).attr("href");
+					console.log(theHREF);
+					$("#kt_modal_1").modal("show");
+				});
+
+				$("#confirmModalNo").click(function(e) {
+					$("#kt_modal_1").modal("hide");
+				});
+
+				$("#confirmModalYes").click(function(e) {
+				//	window.location.href = theHREF;
+					$('#myform'). attr('action', theHREF);
+
+					document.getElementById("myform").submit();
+				});
+
+		});
+
+</script> 
+ 
+
+
+ 
+
+
+  
+ 
+  
+{% endblock %} 

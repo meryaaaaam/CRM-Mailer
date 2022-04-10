@@ -1,0 +1,7 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        fabriquant_image:
+            uri_prefix: /media/logos
+            upload_destination: '%kernel.project_dir%/public/media/logos'

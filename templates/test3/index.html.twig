@@ -1,0 +1,554 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Test3' %}
+{% set P_page_title = '' %}
+{% set P_path = '/Test3' %} 
+ 
+{% block body %}
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				<!--begin::Wrapper-->
+				<div >
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Post-->
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-xxl">
+								<!--begin::Card-->
+								<div class="card">
+									<!--begin::Card header-->
+									<div class="card-header border-0 pt-6 ">
+										<div><h1>Inventaire</h1></div>
+										<!--begin::Card toolbar-->
+										<div class="card-toolbar ">
+											<!--begin::Toolbar-->
+											<div class="d-flex " data-kt-user-table-toolbar="base">
+												<!--begin::Filter-->
+                                            <button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_export_users">
+												<!--begin::Svg Icon | path: icons/duotune/arrows/arr078.svg-->
+												<span class="svg-icon svg-icon-2">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<rect opacity="0.3" x="12.75" y="4.25" width="12" height="2" rx="1" transform="rotate(90 12.75 4.25)" fill="black" />
+														<path d="M12.0573 6.11875L13.5203 7.87435C13.9121 8.34457 14.6232 8.37683 15.056 7.94401C15.4457 7.5543 15.4641 6.92836 15.0979 6.51643L12.4974 3.59084C12.0996 3.14332 11.4004 3.14332 11.0026 3.59084L8.40206 6.51643C8.0359 6.92836 8.0543 7.5543 8.44401 7.94401C8.87683 8.37683 9.58785 8.34458 9.9797 7.87435L11.4427 6.11875C11.6026 5.92684 11.8974 5.92684 12.0573 6.11875Z" fill="black" />
+														<path d="M18.75 8.25H17.75C17.1977 8.25 16.75 8.69772 16.75 9.25C16.75 9.80228 17.1977 10.25 17.75 10.25C18.3023 10.25 18.75 10.6977 18.75 11.25V18.25C18.75 18.8023 18.3023 19.25 17.75 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V11.25C4.75 10.6977 5.19771 10.25 5.75 10.25C6.30229 10.25 6.75 9.80228 6.75 9.25C6.75 8.69772 6.30229 8.25 5.75 8.25H4.75C3.64543 8.25 2.75 9.14543 2.75 10.25V19.25C2.75 20.3546 3.64543 21.25 4.75 21.25H18.75C19.8546 21.25 20.75 20.3546 20.75 19.25V10.25C20.75 9.14543 19.8546 8.25 18.75 8.25Z" fill="#C4C4C4" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->Export</button><!--end::Modal - New Card-->
+
+
+
+
+
+
+
+
+
+
+                                                
+											<!--begin::Modal - Add task-->
+											<div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
+												<!--begin::Modal dialog-->
+												<div class="modal-dialog modal-dialog-centered mw-650px">
+													<!--begin::Modal content-->
+													<div class="modal-content">
+														<!--begin::Modal header-->
+														<div class="modal-header" id="kt_modal_add_user_header">
+															<!--begin::Modal title-->
+															<h2 class="fw-bolder">Add User</h2>
+															<!--end::Modal title-->
+															<!--begin::Close-->
+															<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+																<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+																<span class="svg-icon svg-icon-1">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+																		<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</div>
+															<!--end::Close-->
+														</div>
+														<!--end::Modal header-->
+														<!--begin::Modal body-->
+														<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+															<!--begin::Form-->
+															<form id="kt_modal_add_user_form" class="form" action="#">
+																<!--begin::Scroll-->
+																<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
+																	<!--begin::Input group-->
+																	<div class="fv-row mb-7">
+																		<!--begin::Label-->
+																		<label class="d-block fw-bold fs-6 mb-5">Avatar</label>
+																		<!--end::Label-->
+																		<!--begin::Image input-->
+																		<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
+																			<!--begin::Preview existing avatar-->
+																			<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/150-1.jpg);"></div>
+																			<!--end::Preview existing avatar-->
+																			<!--begin::Label-->
+																			<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+																				<i class="bi bi-pencil-fill fs-7"></i>
+																				<!--begin::Inputs-->
+																				<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+																				<input type="hidden" name="avatar_remove" />
+																				<!--end::Inputs-->
+																			</label>
+																			<!--end::Label-->
+																			<!--begin::Cancel-->
+																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+																				<i class="bi bi-x fs-2"></i>
+																			</span>
+																			<!--end::Cancel-->
+																			<!--begin::Remove-->
+																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+																				<i class="bi bi-x fs-2"></i>
+																			</span>
+																			<!--end::Remove-->
+																		</div>
+																		<!--end::Image input-->
+																		<!--begin::Hint-->
+																		<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+																		<!--end::Hint-->
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="fv-row mb-7">
+																		<!--begin::Label-->
+																		<label class="required fw-bold fs-6 mb-2">Full Name</label>
+																		<!--end::Label-->
+																		<!--begin::Input-->
+																		<input type="text" name="user_name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Full name" value="Emma Smith" />
+																		<!--end::Input-->
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="fv-row mb-7">
+																		<!--begin::Label-->
+																		<label class="required fw-bold fs-6 mb-2">Email</label>
+																		<!--end::Label-->
+																		<!--begin::Input-->
+																		<input type="email" name="user_email" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="example@domain.com" value="e.smith@kpmg.com.au" />
+																		<!--end::Input-->
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="mb-7">
+																		<!--begin::Label-->
+																		<label class="required fw-bold fs-6 mb-5">Role</label>
+																		<!--end::Label-->
+																		<!--begin::Roles-->
+																		<!--begin::Input row-->
+																		<div class="d-flex fv-row">
+																			<!--begin::Radio-->
+																			<div class="form-check form-check-custom form-check-solid">
+																				<!--begin::Input-->
+																				<input class="form-check-input me-3" name="user_role" type="radio" value="0" id="kt_modal_update_role_option_0" checked='checked' />
+																				<!--end::Input-->
+																				<!--begin::Label-->
+																				<label class="form-check-label" for="kt_modal_update_role_option_0">
+																					<div class="fw-bolder text-gray-800">Administrator</div>
+																					<div class="text-gray-600">Best for business owners and company administrators</div>
+																				</label>
+																				<!--end::Label-->
+																			</div>
+																			<!--end::Radio-->
+																		</div>
+																		<!--end::Input row-->
+																		<div class='separator separator-dashed my-5'></div>
+																		<!--begin::Input row-->
+																		<div class="d-flex fv-row">
+																			<!--begin::Radio-->
+																			<div class="form-check form-check-custom form-check-solid">
+																				<!--begin::Input-->
+																				<input class="form-check-input me-3" name="user_role" type="radio" value="1" id="kt_modal_update_role_option_1" />
+																				<!--end::Input-->
+																				<!--begin::Label-->
+																				<label class="form-check-label" for="kt_modal_update_role_option_1">
+																					<div class="fw-bolder text-gray-800">Developer</div>
+																					<div class="text-gray-600">Best for developers or people primarily using the API</div>
+																				</label>
+																				<!--end::Label-->
+																			</div>
+																			<!--end::Radio-->
+																		</div>
+																		<!--end::Input row-->
+																		<div class='separator separator-dashed my-5'></div>
+																		<!--begin::Input row-->
+																		<div class="d-flex fv-row">
+																			<!--begin::Radio-->
+																			<div class="form-check form-check-custom form-check-solid">
+																				<!--begin::Input-->
+																				<input class="form-check-input me-3" name="user_role" type="radio" value="2" id="kt_modal_update_role_option_2" />
+																				<!--end::Input-->
+																				<!--begin::Label-->
+																				<label class="form-check-label" for="kt_modal_update_role_option_2">
+																					<div class="fw-bolder text-gray-800">Analyst</div>
+																					<div class="text-gray-600">Best for people who need full access to analytics data, but don't need to update business settings</div>
+																				</label>
+																				<!--end::Label-->
+																			</div>
+																			<!--end::Radio-->
+																		</div>
+																		<!--end::Input row-->
+																		<div class='separator separator-dashed my-5'></div>
+																		<!--begin::Input row-->
+																		<div class="d-flex fv-row">
+																			<!--begin::Radio-->
+																			<div class="form-check form-check-custom form-check-solid">
+																				<!--begin::Input-->
+																				<input class="form-check-input me-3" name="user_role" type="radio" value="3" id="kt_modal_update_role_option_3" />
+																				<!--end::Input-->
+																				<!--begin::Label-->
+																				<label class="form-check-label" for="kt_modal_update_role_option_3">
+																					<div class="fw-bolder text-gray-800">Support</div>
+																					<div class="text-gray-600">Best for employees who regularly refund payments and respond to disputes</div>
+																				</label>
+																				<!--end::Label-->
+																			</div>
+																			<!--end::Radio-->
+																		</div>
+																		<!--end::Input row-->
+																		<div class='separator separator-dashed my-5'></div>
+																		<!--begin::Input row-->
+																		<div class="d-flex fv-row">
+																			<!--begin::Radio-->
+																			<div class="form-check form-check-custom form-check-solid">
+																				<!--begin::Input-->
+																				<input class="form-check-input me-3" name="user_role" type="radio" value="4" id="kt_modal_update_role_option_4" />
+																				<!--end::Input-->
+																				<!--begin::Label-->
+																				<label class="form-check-label" for="kt_modal_update_role_option_4">
+																					<div class="fw-bolder text-gray-800">Trial</div>
+																					<div class="text-gray-600">Best for people who need to preview content data, but don't need to make any updates</div>
+																				</label>
+																				<!--end::Label-->
+																			</div>
+																			<!--end::Radio-->
+																		</div>
+																		<!--end::Input row-->
+																		<!--end::Roles-->
+																	</div>
+																	<!--end::Input group-->
+																</div>
+																<!--end::Scroll-->
+																<!--begin::Actions-->
+																<div class="text-center pt-15">
+																	<button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
+																	<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+																		<span class="indicator-label">Submit</span>
+																		<span class="indicator-progress">Please wait...
+																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+																	</button>
+																</div>
+																<!--end::Actions-->
+															</form>
+															<!--end::Form-->
+														</div>
+														<!--end::Modal body-->
+													</div>
+													<!--end::Modal content-->
+												</div>
+												<!--end::Modal dialog-->
+											</div>
+											<!--end::Modal - Add task-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                 
+															<!--begin::Add Car-->
+												<button type="button" class="btn btn-primary" >  
+										         <a href="{{path("add_vehicule")}}" >	
+												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+												<span class="svg-icon svg-icon-2">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+														<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+													</svg>
+												</span>
+											</a> Ajouter
+												<!--end::Svg Icon-->
+											   </button>
+											</div> 
+											<!--begin::Modal - Add task-->
+											<div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
+												<!--begin::Modal dialog-->
+												<div class="modal-dialog modal-dialog-centered mw-650px">
+													<!--begin::Modal content-->
+													<div class="modal-content">
+														<!--begin::Modal header-->
+														<div class="modal-header" id="kt_modal_add_user_header">
+															<!--begin::Modal title-->
+															<h2 class="fw-bolder">Ajout Véhicule</h2>
+															<!--end::Modal title-->
+															<!--begin::Close-->
+															<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+																<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+																<span class="svg-icon svg-icon-1">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+																		<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+																	</svg>
+																</span>
+																<!--end::Svg Icon-->
+															</div>
+															<!--end::Close-->
+														</div> 
+														<!--end::Modal header-->
+														<!--begin::Modal body--> 
+														<!--end::Modal body-->
+													</div>
+													<!--end::Modal content-->
+												</div>
+												<!--end::Modal dialog-->
+											</div>
+											<!--end::Modal - Add Car-->
+										</div>
+										<!--end::Card toolbar-->
+									</div>
+									<!--end::Card header-->
+									<!--begin::Card body-->
+									<div class="card-body py-4">
+										<!--begin::Table-->
+										<table id="kt_datatable_example_5" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
+											<thead>
+												<tr class="fw-bolder fs-6 text-gray-800 px-7">
+													<th class="min-w-125px sorting">Photo</th>
+													<th class="min-w-300px sorting ">Détails</th>
+													<th class="min-w-80px sorting">Campany</th>
+												    <th class="min-w-50px sorting">Prix</th>
+													<th class="min-w-50px sorting">N° Inventaire</th>
+													<th class="min-w-50px sorting" >Action</th>
+													
+												</tr>
+											</thead>
+											{# <tbody>
+												{% for vehicule in vehicule %}
+															<tr>
+                                                                <td>
+																	<div class="d-flex align-items-center">
+																	
+																		<div class="d-flex justify-content-start flex-column">
+																		   
+																			<h3></h3><a href="#" class="text-dark fw-bolder text-hover-primary fs-6"><img src="{{asset(vehicule.media.lien)}}" alt={{vehicule.media.nom}} width="100"/></a></div>	
+																		</div>
+																	</div>
+																</td>
+																<td class="col mb-4">
+																<b>{{vehicule.annee}}.{{vehicule.marque.nom}}.{{vehicule.modele.nom}}.{{vehicule.Couleurexterieur}}</b><br/>
+																{{vehicule.carproof}}<br/>
+																{{vehicule.vin}}<br/>
+																{{vehicule.category.nom}}
+															    </td>
+																<td>
+																{{vehicule.utilisateur.nom}}
+																</td>
+																<td>
+																	{{vehicule.prixdetail}}
+															
+															    </td>
+																<td>
+																	{{vehicule.numinventaire}}
+																</td>
+																
+																
+																
+																<td><div class="d-flex justify-content-end flex-shrink-0">
+																		
+																	<a href="{{path("consultation_vehicule",{ 'id' : vehicule.Id})}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+																		<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+																		<span class="svg-icon svg-icon-3">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																				<path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="black" />
+																				<path d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z" fill="black" />
+																			</svg>
+																		</span>
+																		<!--end::Svg Icon-->
+																	</a>
+																	
+																	<form  method="POST" style="display:inline-block" id="myform"  action="{{path('delete-vehicule', {'id' : vehicule.id})}}"    onsubmit="return">
+																			
+																	
+																	 
+																		   
+																	   
+																		
+																		<input type="hidden" name="_method" value="delete">
+																		<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ vehicule.id)}}">
+
+																		
+											
+																		
+																		
+																		<a href="{{path('delete-vehicule', {'id' : vehicule.id})}}" class="confirmModalLink btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+
+
+
+																		
+
+																		<!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+																		<span class="svg-icon svg-icon-3">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																				<path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black" />
+																				<path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black" />
+																				<path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black" />
+																			</svg>
+																		</span>
+																		<!--end::Svg Icon-->
+
+																		</a>
+                                                                        
+																		
+																 
+
+
+
+
+																						<div class="modal fade" tabindex="-1" id="kt_modal_1">
+																							<div class="modal-dialog">
+																								<div class="modal-content">
+																									<div class="modal-header">
+																										<h5 class="modal-title">Confirmation de suppression</h5>
+																						
+																										
+																										<!--begin::Close-->
+																										<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+																											<span class="svg-icon svg-icon-2x"></span>
+																										</div>
+																										<!--end::Close-->
+																									</div>
+																									<div class="modal-body">
+																										<p>Voulez-vous vraiment supprimer vehicule n°<span><b>{{vehicule.vin}}</b></span></p>
+																									</div>
+																						
+																									<div class="modal-footer">
+																										<button type="button" class="btn btn-light" data-bs-dismiss="modal" id="confirmModalNo">Annuler</button>
+																										<button type="submit"  class="btn btn-primary" id="confirmModalYes">Supprimer</button>
+																									
+																								</div>
+																							</div>
+																							</div>
+																						</div>
+                                                                        
+																
+																					</form>
+																
+																</div></td>
+															
+															</tr>
+													
+												{% endfor %}
+											</tbody> #}
+										</table>
+										<!--end::Table-->
+									</div>
+									<!--end::Card body-->
+								</div>
+								<!--end::Card-->
+							</div>
+							<!--end::Container-->
+						</div>
+
+						<!--end::Post-->
+
+					</div>
+					<!--end::Content-->
+		
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Root-->
+		<!--begin::Drawers-->
+		<!--begin::Activities drawer-->
+	
+
+		<!--end::Activities drawer-->
+		<!--begin::Chat drawer-->
+	
+		<!--end::Chat drawer-->
+		<!--end::Drawers-->
+		<!--end::Main-->
+</body>
+
+ 	{{ include('layout/pagination.html.twig') }}
+
+<script>
+$("#kt_datatable_example_5").DataTable({
+    "language": {
+        "lengthMenu": "Afficher _MENU_",
+        "sSearch":        "Rechercher:",
+
+  "sLengthMenu":    "Mostrar _MENU_ registros",
+        "sZeroRecords":   "Pas de données pour cette liste",
+        "sEmptyTable":    "Pas de données pour cette liste",
+        
+         "sInfo":          "Affichage de _START_ à _END_ sur un total de _TOTAL_ enregistrements",
+         "oPaginate": {
+           
+            "sNext":    "Suivant",
+            "sPrevious": "Précédent"
+        }   
+		
+                },
+ "dom":
+  "<'row'" +
+  "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
+  "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+  ">" +
+
+  "<'table-responsive'tr>" +
+
+  "<'row'" +
+  "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+  "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+  ">"
+});
+</script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var theHREF;
+	$(".confirmModalLink").click(function(e) {
+			e.preventDefault();
+			theHREF = $(this).attr("href");
+			
+			$("#kt_modal_1").modal("show");
+		});
+
+		$("#confirmModalNo").click(function(e) {
+			$("#kt_modal_1").modal("hide");
+		});
+
+		$("#confirmModalYes").click(function(e) {
+			window.location.href = theHREF;
+			$('#myform'). attr('action', theHREF);
+
+			document.getElementById("myform").submit();
+		});
+
+});
+
+</script>
+
+{% endblock %}
+ 

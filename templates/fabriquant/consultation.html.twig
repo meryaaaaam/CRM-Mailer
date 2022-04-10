@@ -1,0 +1,177 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Consultation Fabriquant' %}
+{% set P_page_title = 'Liste des Fabriquants' %}
+{% set P_path = '/fabriquant' %}
+ 
+{% block body %}
+  
+    <!--end::Head-->
+    <!--begin::Body-->
+    <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+    <!--begin::Main-->
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="page flex-row flex-column-fluid">
+            <!--begin::Aside-->
+
+            <!--end::Aside-->
+            <!--begin::Wrapper-->
+            <div>
+            
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+               
+                    <!--begin::Post-->
+                    <div class="post d-flex flex-column-fluid" id="kt_post">
+                        <!--begin::Container-->
+                        <div id="kt_content_container" class="container-xxl">
+                            <!--begin::Navbar-->
+                            <div class="card mb-5 mb-xl-10">
+                                <div class="card-body pt-9 pb-0">
+                                    <!--begin::Details-->
+                                    <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
+                                        <!--begin: Pic-->
+                                        <div class="me-7 mb-4">
+                                            <div class="position-relative">
+                                               <img src="{{asset('/media/logos/' ~ fabriquant.media.nom )}}" alt="logo-concessionnaire" width="30%" >
+                                      
+                                             </div>
+                                        </div>
+                                        <!--end::Pic-->
+                                    
+                                    </div>
+                                    <!--end::Details-->
+                                    <!--begin::Navs-->
+                                    <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
+                                        <!--begin::Nav item-->
+                                        <li class="nav-item mt-2">
+                                            <a class="nav-link text-active-primary ms-0 me-10 py-5 active" href="{{path("consultation_fabriquant",{ 'id' : fabriquant.id})}}">Aperçu</a>
+                                        </li>
+                                        <!--end::Nav item-->
+                                        <!--begin::Nav item-->
+                                        <li class="nav-item mt-2">
+                                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{path("modification_fabriquant",{ 'id' : fabriquant.id})}}">Modifier</a>
+                                        </li>
+                                     
+
+                                    </ul>
+                                    <!--begin::Navs-->
+                                </div>
+                            </div>
+                            <!--end::Navbar-->
+                            <!--begin::details View-->
+                            <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+                                <!--begin::Card header-->
+                                <div class="card-header cursor-pointer">
+                                    <!--begin::Card title-->
+                                    <div class="card-title m-0">
+                                        <h3 class="fw-bolder m-0">Détail du profil</h3>
+                                    </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Action-->
+                                    <a href= "{{path("modification_fabriquant",{ 'id' : fabriquant.id})}}" class="btn btn-primary align-self-center">Editer le profile</a>
+                                    <!--end::Action-->
+                                </div>
+
+                                <!--begin::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body p-9">
+                                    <!--begin::Row-->
+
+
+
+                                        <div class="row mb-7">
+                                         	 <div class="col-lg-4">
+										      	<label class="col-lg-4 fw-bold text-muted">Actif - Acceuil : </label>
+                                                    {% if fabriquant.actifaccueil == 1  %}
+                                                         <span class="checkbox-switch">oui</span>
+                                                     {% else %}
+                                                      <span class="checkbox-switch">Non</span>   
+                                                      {% endif %}
+                                             </div>
+
+                                              <div class="col-lg-4">
+										      	<label class="col-lg-4 fw-bold text-muted">Actif - CRM : </label>
+                                                    {% if fabriquant.actifcrm == 1  %}
+                                                         <span class="checkbox-switch">oui</span>
+                                                     {% else %}
+                                                      <span class="checkbox-switch">Non</span>   
+                                                      {% endif %}
+                                             </div>
+
+                                               <div class="col-lg-4">
+										      	<label class="col-lg-4 fw-bold text-muted">Actif - Service : </label>
+                                                    {% if fabriquant.actifservice == 1  %}
+                                                         <span class="checkbox-switch">oui</span>
+                                                     {% else %}
+                                                      <span class="checkbox-switch">Non</span>   
+                                                      {% endif %}
+                                             </div>
+
+
+                                         
+                                
+
+                                        </div>
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+
+                                        <label class="col-lg-4 fw-bold text-muted">Nom</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8">
+                                            <span class="fw-bold text-gray-800 fs-6">{{fabriquant.nom}}</span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::Row-->
+                                    <!--begin::Input group-->
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 fw-bold text-muted">Lien</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 fv-row">
+                                            <span class="fw-bold text-gray-800 fs-6">{{fabriquant.lien}}</span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+
+                                     <!--begin::Input group-->
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 fw-bold text-muted">Description</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 fv-row">
+                                            <span class="fw-bold text-gray-800 fs-6">{{fabriquant.description}}</span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+
+                                    
+                                    <!--begin::Input group-->
+
+
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Post-->
+                </div>
+                <!--end::Content-->
+          
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Root-->
+
+   
+    </body>
+{% endblock %}

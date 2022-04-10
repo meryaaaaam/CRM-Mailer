@@ -1,0 +1,764 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Options Véhicule  ' %}
+{% set P_page_title = 'Liste Véhicules  ' %}
+{% set P_path = '/vehicule' %}
+
+{% block title %}Véhicule {% endblock %}
+	
+{% block body %}
+	<!--begin::Head-->
+	
+    
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page flex-row flex-column-fluid">
+				<!--begin::Aside-->
+				
+				<!--end::Aside-->
+				<!--begin::Wrapper-->
+				<div>
+		 
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						
+						<!--begin::Post-->
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-xxl">
+								<!--begin::Navbar-->
+								<div class="card mb-5 mb-xl-10">
+									<div class="card-body pt-9 pb-0">
+										<!--begin::Details-->
+										<div class="d-flex flex-wrap flex-sm-nowrap mb-3">
+											<!--begin: Pic-->
+											
+											<!--end::Pic-->
+											<!--begin::Info-->
+											<div class="flex-grow-1">
+												<!--begin::Title-->
+												
+												<!--end::Title-->
+												<!--begin::Stats-->
+												
+												<!--end::Stats-->
+											</div>
+											<!--end::Info-->
+										</div>
+										<!--end::Details-->
+										<!--begin::Navs-->
+										<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
+											<!--begin::Nav item-->
+											<li class="nav-item mt-2">
+												<a class="nav-link text-active-primary ms-0 me-10 py-5 active" href="{{path("consultation_vehicule",{ 'id' : vehicules.Id})}}">Aperçu</a>
+											</li>
+											<!--end::Nav item-->
+											<!--begin::Nav item-->
+											<li class="nav-item mt-2">
+												<a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{path("edit-vehicule",{ 'id' : vehicules.Id})}}">Information Génerale</a>
+											</li>
+                                            <li class="nav-item mt-2">
+												<a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{path("options_vehicule",{ 'id' : vehicules.Id})}}">Options du Véhicule</a>
+											</li>
+											<!--end::Nav item-->
+											<!--begin::Nav item-->
+											
+											<!--end::Nav item-->
+											
+										</ul>
+										<!--begin::Navs-->
+									</div>
+								</div>
+								<!--end::Navbar-->
+								<!--begin::details View-->
+								<div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+									<!--begin::Card header-->
+									<div class="card-header cursor-pointer">
+										<!--begin::Card title-->
+										<div class="card-title m-0">
+											<h3 class="fw-bolder m-0">Options du Véhicule</h3>
+										</div>
+                                        
+										<!--end::Card title-->
+										<!--begin::Action-->
+										<a href= "{{path("edit-vehicule",{ 'id' : vehicules.Id})}}" class="btn btn-primary align-self-center">Editer Véhicule</a>
+										<!--end::Action-->
+									</div>
+                                    <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+									<!--begin::Card header-->
+									<!--begin::Card body-->
+									<div class="row mb-12">
+                
+                                                                <div class="row mb-12 ">
+                                                                    <div class="col-4">
+                                                                        <label class="col-lg-4 fw-bold text-muted">Aileron arrière</label>
+                                                                            {% if vehicules.Aileronarriere == 1 %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                            {% else %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                            {% endif %}
+                                                                        </div>	
+                                                                        
+                                                                    
+                                                                    <div class="col-4">
+                                                                        <label class="col-lg-4 fw-bold text-muted">Antipatinage</label>
+                                                                            {% if vehicules.Antipatinage == 1 %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                            {% else %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                            {% endif %}
+                                                                        </div>	
+                                                                        
+                                                                    
+                                                                    <div class="col-4">
+                                                                        <label class="col-lg-4 fw-bold text-muted">chargeur CD</label>
+                                                                            {% if vehicules.chargeurdc == 1 %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                            {% else %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                            {% endif %}
+                                                                        </div>	
+                                                                        
+                                                                    
+                                                                </div> 
+                                                                <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>   
+                                                                <div class="row mb-12 ">
+                                                                      <div class="col-4">
+                                                                        <label class="col-lg-8 fw-bold text-muted">Climatisation automatique</label>
+                                                                            {% if vehicules.climatisationautomatique == 1 %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                            {% else %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                            {% endif %}
+                                                                        </div>	
+                                                                        
+                                                                    
+                                                                    <div class="col-4">
+                                                                        <label class="col-lg-8 fw-bold text-muted">Coussin gonflable pour le conducteur</label>
+                                                                            {% if vehicules.coussingonflablepouleconducteur == 1 %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                            {% else %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                            {% endif %}
+                                                                        </div>	
+                                                                        
+                                                                    
+                                                                    <div class="col-4">
+                                                                        <label class="col-lg-8 fw-bold text-muted ">Crochet remorquage arrière</label>
+                                                                            {% if vehicules.crochetremorquagearriere == 1 %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                            {% else %}
+                                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                            {% endif %}
+                                                                        </div>	
+                                                                        
+                                                                    
+                                                                </div>
+                                                                <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div> 
+                                                                <div class="row mb-12 ">
+                                                                    <div class="col-4">
+                                                                      <label class="col-lg-8 fw-bold text-muted">Détecteur de pluie</label>
+                                                                          {% if vehicules.detecteurdepluie == 1 %}
+                                                                          <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                          {% else %}
+                                                                          <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                          {% endif %}
+                                                                      </div>	
+                                                                      
+                                                                  
+                                                                  <div class="col-4">
+                                                                      <label class="col-lg-8 fw-bold text-muted">Essuie-glaces intermittents à vitesse variable</label>
+                                                                          {% if vehicules.Essuieglacesintermittentsavitessevariable == 1 %}
+                                                                          <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                          {% else %}
+                                                                          <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                          {% endif %}
+                                                                      </div>	
+                                                                      
+                                                                  
+                                                                  <div class="col-4">
+                                                                      <label class="col-lg-8 fw-bold text-muted ">Inclinaison électrique / toit ouvrant coulissant</label>
+                                                                          {% if vehicules.inclinaisonelectriquetoitouvrantcoulissant == 1 %}
+                                                                          <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                          {% else %}
+                                                                          <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                          {% endif %}
+                                                                      </div>	
+                                                                      
+                                                                  
+                                                              </div>
+                                                              <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>  
+                                                            <div class="row mb-12 ">
+                                                                    <div class="col-4">
+                                                                    <label class="col-lg-8 fw-bold text-muted">Miroirs chauffants</label>
+                                                                        {% if vehicules.miroirschauffants == 1 %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                        {% else %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                        {% endif %}
+                                                                    </div>	
+                                                                    
+                                                                
+                                                                <div class="col-4">
+                                                                    <label class="col-lg-8 fw-bold text-muted">Ordinateur de bord </label>
+                                                                        {% if vehicules.ordinateurdebord == 1 %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                        {% else %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                        {% endif %}
+                                                                    </div>	
+                                                                    
+                                                                
+                                                                <div class="col-4">
+                                                                    <label class="col-lg-8 fw-bold text-muted ">Radio satellite</label>
+                                                                        {% if vehicules.radiosatellite == 1 %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                        {% else %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                        {% endif %}
+                                                                    </div>	
+                                                                  
+                                                              
+                                                            </div>  
+                                                            <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                                            <div class="row mb-12 ">
+                                                                    <div class="col-4">
+                                                                    <label class="col-lg-8 fw-bold text-muted">Servo-direction</label>
+                                                                        {% if vehicules.servodirection == 1 %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                        {% else %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                        {% endif %}
+                                                                    </div>	
+                                                                    
+                                                                
+                                                                <div class="col-4">
+                                                                    <label class="col-lg-8 fw-bold text-muted">Sièges chauffants</label>
+                                                                        {% if vehicules.Sigeschauffants == 1 %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                        {% else %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                        {% endif %}
+                                                                    </div>	
+                                                                    
+                                                                
+                                                                <div class="col-4">
+                                                                    <label class="col-lg-8 fw-bold text-muted ">Sonar de stationnement arrière</label>
+                                                                        {% if vehicules.sonardestationnementarriere == 1 %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                        {% else %}
+                                                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                        {% endif %}
+                                                                    </div>	
+                                                         </div> 
+                                                         <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div> 
+                                                         <div class="row mb-12 ">
+                                                                <div class="col-4">
+                                                                <label class="col-lg-8 fw-bold text-muted">Système d'alarme</label>
+                                                                    {% if vehicules.systemealarme == 1 %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                    {% else %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                    {% endif %}
+                                                                </div>	
+                                                                
+                                                            
+                                                            <div class="col-4">
+                                                                <label class="col-lg-8 fw-bold text-muted">Tachéomètre</label>
+                                                                    {% if vehicules.tacheometre == 1 %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                    {% else %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                    {% endif %}
+                                                                </div>	
+                                                                
+                                                            
+                                                            <div class="col-4">
+                                                                <label class="col-lg-8 fw-bold text-muted ">Vitres électriques</label>
+                                                                    {% if vehicules.vitreselectriques == 1 %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                    {% else %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                    {% endif %}
+                                                                </div>	
+                                                         </div>  
+                                                         <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                                         <div class="row mb-12 ">
+                                                                <div class="col-4">
+                                                                <label class="col-lg-8 fw-bold text-muted">Phares anti-brouillard</label>
+                                                                    {% if vehicules.pharesantibrouillard == 1 %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                    {% else %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                    {% endif %}
+                                                                </div>	
+                                                                
+                                                            
+                                                            <div class="col-4">
+                                                                <label class="col-lg-8 fw-bold text-muted">Air climatisé</label>
+                                                                    {% if vehicules.airclimatise == 1 %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                    {% else %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                    {% endif %}
+                                                                </div>	
+                                                                
+                                                            
+                                                            <div class="col-4">
+                                                                <label class="col-lg-8 fw-bold text-muted ">Bluetooth</label>
+                                                                    {% if vehicules.bluetooth == 1 %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                    {% else %}
+                                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                    {% endif %}
+                                                                </div>	
+                                                        </div>  
+                                                        <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                                        <div class="row mb-12 ">
+                                                            <div class="col-4">
+                                                            <label class="col-lg-8 fw-bold text-muted">Climatisation 2 zones</label>
+                                                                {% if vehicules.climatisation2zones == 1 %}
+                                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                {% else %}
+                                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                {% endif %}
+                                                            </div>	
+                                                            
+                                                        
+                                                        <div class="col-4">
+                                                            <label class="col-lg-8 fw-bold text-muted">Commandes au volant </label>
+                                                                {% if vehicules.commandesauvolant == 1 %}
+                                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                {% else %}
+                                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                {% endif %}
+                                                            </div>	
+                                                            
+                                                        
+                                                        <div class="col-4">
+                                                            <label class="col-lg-8 fw-bold text-muted ">Coussin gonflable pour le passager</label>
+                                                                {% if vehicules.coussingonflablepourlepassager == 1 %}
+                                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                                {% else %}
+                                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                                {% endif %}
+                                                            </div>	
+                                                    </div> 
+                                                    <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                                    <div class="row mb-12 ">
+                                                        <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted">Dégivreur arrière</label>
+                                                            {% if vehicules.degivreurarriere == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                                        
+                                                    
+                                                    <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted">Enjoliveurs de roues</label>
+                                                            {% if vehicules.enjoliveursderoues == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                                        
+                                                    
+                                                    <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted ">Freins ABS</label>
+                                                            {% if vehicules.freinsabc == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                                </div>  
+                                                <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                                <div class="row mb-12 ">
+                                                        <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted">Lecteur CD</label>
+                                                            {% if vehicules.lecteurdc == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                                        
+                                                    
+                                                    <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted">Miroirs électriques</label>
+                                                            {% if vehicules.miroirselectriques == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                                        
+                                                    
+                                                    <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted ">Ouverture du coffre à distance</label>
+                                                            {% if vehicules.ouverturesducoffreadistance == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                               </div>  
+                                               <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                               <div class="row mb-12 ">
+                                                <div class="col-4">
+                                                <label class="col-lg-8 fw-bold text-muted">Phares Xénon</label>
+                                                    {% if vehicules.pharesxenon == 1 %}
+                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                    {% else %}
+                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                    {% endif %}
+                                                </div>	
+                                                
+                                            
+                                            <div class="col-4">
+                                                <label class="col-lg-8 fw-bold text-muted">Régulateur de vitesse</label>
+                                                    {% if vehicules.regulateurdevistesse == 1 %}
+                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                    {% else %}
+                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                    {% endif %}
+                                                </div>	
+                                                
+                                            
+                                            <div class="col-4">
+                                                <label class="col-lg-8 fw-bold text-muted ">Siège chauffant conducteur</label>
+                                                    {% if vehicules.siegechauffantconducteur == 1 %}
+                                                    <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                    {% else %}
+                                                    <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                    {% endif %}
+                                                </div>	
+                                          </div> 
+                                          <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div> 
+                                          <div class="row mb-12 ">
+                                            <div class="col-4">
+                                            <label class="col-lg-8 fw-bold text-muted">Sièges arrières traversables </label>
+                                                {% if vehicules.siegesarrierestraversables == 1 %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                {% else %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                {% endif %}
+                                            </div>	
+                                            
+                                        
+                                        <div class="col-4">
+                                            <label class="col-lg-8 fw-bold text-muted">Sièges cuir</label>
+                                                {% if vehicules.siegescuire == 1 %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                {% else %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                {% endif %}
+                                            </div>	
+                                            
+                                        
+                                        <div class="col-4">
+                                            <label class="col-lg-8 fw-bold text-muted ">Sun / moon roof </label>
+                                                {% if vehicules.sunmoonroof == 1 %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                {% else %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                {% endif %}
+                                            </div>	
+                                   </div>  
+                                   <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                                    <div class="row mb-12 ">
+                                                        <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted">Système de navigation </label>
+                                                            {% if vehicules.systemedenavigation == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                                        
+                                                    
+                                                    <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted">Tapis de sol avant</label>
+                                                            {% if vehicules.tapisdesolavant == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                                        
+                                                    
+                                                    <div class="col-4">
+                                                        <label class="col-lg-8 fw-bold text-muted ">Vitres teintés</label>
+                                                            {% if vehicules.vitresteintes == 1 %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                            {% else %}
+                                                            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                            {% endif %}
+                                                        </div>	
+                                            </div> 
+                                            <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                        <div class="row mb-12 ">
+                                            <div class="col-4">
+                                            <label class="col-lg-8 fw-bold text-muted">AM/FM stéréo </label>
+                                                {% if vehicules.amfmsterio == 1 %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                {% else %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                {% endif %}
+                                            </div>	
+                                            
+                                        
+                                        <div class="col-4">
+                                            <label class="col-lg-8 fw-bold text-muted">Caméra de recul</label>
+                                                {% if vehicules.cameraderecul == 1 %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                {% else %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                {% endif %}
+                                            </div>	
+                                            
+                                        
+                                        <div class="col-4">
+                                            <label class="col-lg-8 fw-bold text-muted ">Climatisation arrière</label>
+                                                {% if vehicules.climatisationarriere == 1 %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                                {% else %}
+                                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                                {% endif %}
+                                            </div>	
+                                  
+                                <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                                <div class="row mb-12 ">
+                                    <div class="col-4">
+                                    <label class="col-lg-8 fw-bold text-muted">Contrôle de stabilité</label>
+                                        {% if vehicules.controledestabilite == 1 %}
+                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                        {% else %}
+                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                        {% endif %}
+                                    </div>	
+                                    
+                                
+                                <div class="col-4">
+                                    <label class="col-lg-8 fw-bold text-muted">Coussins gonflables latéraux</label>
+                                        {% if vehicules.cousinsgonflableslateraux == 1 %}
+                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                        {% else %}
+                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                        {% endif %}
+                                    </div>	
+                                    
+                                
+                                <div class="col-4">
+                                    <label class="col-lg-8 fw-bold text-muted ">Démarrage sans clé</label>
+                                        {% if vehicules.demarragesanscle == 1 %}
+                                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                        {% else %}
+                                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                        {% endif %}
+                                    </div>	
+                        </div> 
+                        <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                        <div class="row mb-12 ">
+                            <div class="col-4">
+                            <label class="col-lg-8 fw-bold text-muted">Entrée sans clé </label>
+                                {% if vehicules.entreesanscle == 1 %}
+                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                {% else %}
+                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                {% endif %}
+                            </div>	
+                            
+                        
+                        <div class="col-4">
+                            <label class="col-lg-8 fw-bold text-muted">Freins assistés</label>
+                                {% if vehicules.freinsassistes == 1 %}
+                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                {% else %}
+                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                {% endif %}
+                            </div>	
+                            
+                        
+                        <div class="col-4">
+                            <label class="col-lg-8 fw-bold text-muted ">Lecteur MP3</label>
+                                {% if vehicules.lecteurmp == 1 %}
+                                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                                {% else %}
+                                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                                {% endif %}
+                            </div>	
+                </div> 
+                <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+                <div class="row mb-12 ">
+                    <div class="col-4">
+                    <label class="col-lg-8 fw-bold text-muted"> Particulier</label>
+                        {% if vehicules.particulier == 1 %}
+                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                        {% else %}
+                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                        {% endif %}
+                    </div>	
+                    
+                
+                <div class="col-4">
+                    <label class="col-lg-8 fw-bold text-muted">Portes électriques</label>
+                        {% if vehicules.porteselectriques == 1 %}
+                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                        {% else %}
+                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                        {% endif %}
+                    </div>	
+                    
+                
+                <div class="col-4">
+                    <label class="col-lg-8 fw-bold text-muted ">Serrures de sécurité pour enfant </label>
+                        {% if vehicules.serruresdesecuritepourenfant == 1 %}
+                        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                        {% else %}
+                        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                        {% endif %}
+                    </div>	
+        </div> 
+        <div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+        <div class="row mb-12 ">
+            <div class="col-4">
+            <label class="col-lg-8 fw-bold text-muted">Siège électrique conducteur </label>
+                {% if vehicules.siegeelectriqueconducteur == 1 %}
+                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                {% else %}
+                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                {% endif %}
+            </div>	
+            
+        
+        <div class="col-4">
+            <label class="col-lg-8 fw-bold text-muted">Sièges baquets</label>
+                {% if vehicules.siegesbaquets == 1 %}
+                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                {% else %}
+                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                {% endif %}
+            </div>	
+            
+        
+        <div class="col-4">
+            <label class="col-lg-8 fw-bold text-muted ">Sièges mémoire </label>
+                {% if vehicules.siegesmemoire == 1 %}
+                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                {% else %}
+                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                {% endif %}
+            </div>	
+</div> 
+<div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+<div class="row mb-12 ">
+    <div class="col-4">
+    <label class="col-lg-8 fw-bold text-muted"> Système antivol</label>
+        {% if vehicules.systemeantivol == 1 %}
+        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+        {% else %}
+        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+        {% endif %}
+    </div>	
+    
+
+<div class="col-4">
+    <label class="col-lg-8 fw-bold text-muted">Sytème surveillance pression des pneus</label>
+        {% if vehicules.systemesurveillancepressiondespneus == 1 %}
+        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+        {% else %}
+        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+        {% endif %}
+    </div>	
+    
+
+<div class="col-4">
+    <label class="col-lg-8 fw-bold text-muted ">toit ouvrant </label>
+        {% if vehicules.toitouvrant == 1 %}
+        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+        {% else %}
+        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+        {% endif %}
+    </div>	
+</div> 
+<div class="card-body border-top p-9" class="card-header border-0 cursor-pointer" class="collapse show"></div>
+<div class="row mb-12 ">
+    <div class="col-4">
+    <label class="col-lg-8 fw-bold text-muted"> Volant ajustable </label>
+        {% if vehicules.volantajustable == 1 %}
+        <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+        {% else %}
+        <span class="fw-bolder fs-8 text-gray-800">Non</span>
+        {% endif %}
+    </div>
+    <div class="col-4">
+        <label class="col-lg-8 fw-bold text-muted"> Miroirs signal de courbe intégré </label>
+            {% if vehicules.Miroirssignaldecourbeintegre == 1 %}
+            <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+            {% else %}
+            <span class="fw-bolder fs-8 text-gray-800">Non</span>
+            {% endif %}
+        </div>
+        <div class="col-4">
+            <label class="col-lg-8 fw-bold text-muted"> Sièges arrières chauffants </label>
+                {% if vehicules.Siegesarriereschauffants == 1 %}
+                <span class="fw-bolder fs-8 text-gray-800">Oui</span>
+                {% else %}
+                <span class="fw-bolder fs-8 text-gray-800">Non</span>
+                {% endif %}
+            </div>
+</div>    
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+
+
+                                                        
+                                                    
+                                                         
+                                                
+                                    
+</div> 										
+									        </div>
+									<!--end::Card body-->
+								</div>
+								<!--end::details View-->
+								<!--begin::Row-->
+								
+								<!--end::Row-->
+								<!--begin::Row-->
+								
+								<!--end::Row-->
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Post-->
+					</div>
+					<!--end::Content-->
+			 
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+
+    {% endblock %}

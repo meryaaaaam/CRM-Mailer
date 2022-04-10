@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Modeleemail{% endblock %}
+
+{% block body %}
+    <h1>Create new Modeleemail</h1>
+
+    {{ include('modeleemail/_form.html.twig') }}
+
+    <a href="{{ path('modeleemail_index') }}">back to list</a>
+{% endblock %}

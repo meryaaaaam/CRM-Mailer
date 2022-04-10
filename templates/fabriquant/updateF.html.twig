@@ -1,0 +1,162 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Modifier Fabriquant' %}
+{% set P_page_title = 'Liste Fabriquants ' %}
+ {% set P_path = '/fabriquant' %}
+ 
+{% block body %}
+ 
+ 
+
+    <div id="kt_content_container" class="container-xxl">
+        <!--begin::Navbar-->
+        <div class="card mb-5 mb-xl-10">
+            <div class="card-body pt-9 pb-0">
+                <!--begin::Details-->
+                <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
+                    <!--begin: Pic-->
+                    <div class="me-7 mb-4">
+                        <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+                            <img src="{{asset('/media/logos/' ~ fabriquant.media.nom )}}" alt="logo-concessionnaire" width="150" >
+                         </div>
+                    </div>
+                    <!--end::Pic-->
+                    <!--begin::Info-->
+                    <div class="flex-grow-1">
+                        <!--begin::Title-->
+                        <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+                            <!--begin::User-->
+                            <div class="d-flex flex-column">
+                                <!--begin::Name-->
+                                <div class="d-flex align-items-center mb-2">
+                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{fabriquant.nom}}</a>
+                                </div>
+                                <!--end::Name-->
+                            </div>
+                            <!--end::User-->
+                        </div>
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Info-->
+                </div>
+                <!--end::Details-->
+                <!--begin::Navs-->
+               	<!--begin::Navs-->
+										<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
+											<!--begin::Nav item-->
+											<li class="nav-item mt-2">
+												<a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{path("consultation_fabriquant",{ 'id' : fabriquant.id})}}">Aperçu</a>
+											</li>
+											<!--end::Nav item-->
+											<!--begin::Nav item-->
+											<li class="nav-item mt-2">
+												<a class="nav-link text-active-primary ms-0 me-10 py-5 active" href="{{path("modification_fabriquant",{ 'id' : fabriquant.id})}}">Modification</a>
+											</li>
+											<!--end::Nav item-->
+											
+										</ul>
+										<!--begin::Navs-->
+                <!--begin::Navs-->
+            </div>
+        </div>
+ 
+    </div>
+
+
+
+
+ 
+         <!--begin::Post-->
+       <div class="post d-flex flex-column-fluid" id="kt_post">
+                <!--begin::Container-->
+         <div id="kt_content_container" class="container-xxl">
+                        <!--begin::Basic info-->
+             <div class="card mb-5 mb-xl-10">
+                                <!--begin::Card title-->
+                                <!--end::Card title-->
+
+                <div id="kt_account_settings_profile_details" class="collapse show">
+                    <div id="kt_account_settings_profile_details" class="collapse show">
+                                                   
+                                    
+                                 <div class="card mb-5 mb-xxl-8">
+						                   {{ form_start(form, {'attr': {'class':'row'}   } ) }}
+								             
+                                             		<div class="row mb-6">
+                                                          <div class="col-sm-4">
+                                                            {{ form_row(form.actifcrm, {"label":"Actif - CRM"}) }}
+                                                         </div>
+                                                         <div class="col-sm-4">
+                                                         {{ form_row(form.actifservice, {"label":"Actif - Page Services"}) }}
+                                                         </div>
+                                                         <div class="col-sm-4">
+                                                          {{ form_row(form.actifaccueil, {"label":"Actif - Page d'accueil"}) }}
+                                                         </div>
+                                                    </div>
+
+                                                     <div class="row mb-6">
+											             	{{ form_label(form.nom, "Nom :", {'label_attr': {'class':"col-lg-4 col-form-label fw-bold fs-6"}}) }}
+                                                          
+                                                         <div class="col-lg-8 fv-row fv-plugins-icon-container">
+										                  	{{ form_widget(form.nom)}}
+                                                         </div>
+                                                     </div>
+
+                                                       <div class="row mb-6">
+											             	{{ form_label(form.lien, "Lien :", {'label_attr': {'class':"col-lg-4 col-form-label fw-bold fs-6"}}) }}
+                                                          
+                                                         <div class="col-lg-8 fv-row fv-plugins-icon-container">
+										                  
+                                                            {{ form_row(form.lien)}}
+                                                      </div> 
+                                                        </div>
+
+                                                             <div class="row mb-6">
+											                	{{ form_label(form.description, "Description :", {'label_attr': {'class':"col-lg-4 col-form-label fw-bold fs-6"}}) }}
+                                                          
+                                                                <div class="col-lg-8 fv-row fv-plugins-icon-container">
+										                  
+                                                                       {{ form_row(form.description)}}
+                                                                  </div>
+                                                              </div>
+
+                                                             <div class="row mb-6">
+											                    	{{ form_label(form.media, "Logo :", {'label_attr': {'class':"col-lg-4 col-form-label fw-bold fs-6"}}) }}
+                                                          
+                                                                 <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                                                   {{ form_widget(form.media, {"label":"Logo"})}}
+                                                                  </div> 
+                                                              </div>
+											
+ 									               {{ form_rest(form) }}
+								   
+								<div class="card-footer d-flex justify-content-end py-6 px-9">
+									<button type="reset" class="btn btn-light btn-active-light-primary me-2">Annuler</button>
+								   <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Valider</button>
+								</div>
+								
+										{# Fermeture de la balise <form> du formulaire HTML #}
+										{{ form_end(form) }}
+
+					            </div>
+                     </div>
+                </div>
+            </div>
+
+    </div>
+    <!--end::Container-->
+     </div>
+       <!--end::Post-->
+      </div>
+    <!--end::Content-->
+    
+   </div>
+     <!--end::Wrapper-->
+       </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Root-->
+ 
+  
+     
+    </body>
+{% endblock %}

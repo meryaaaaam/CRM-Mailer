@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OperationAchat{% endblock %}
+
+{% block body %}
+    <h1>OperationAchat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ operation_achat.id }}</td>
+            </tr>
+            <tr>
+                <th>Numserie</th>
+                <td>{{ operation_achat.numserie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('operation_achat_index') }}">back to list</a>
+
+    <a href="{{ path('operation_achat_edit', {'id': operation_achat.id}) }}">edit</a>
+
+    {{ include('operation_achat/_delete_form.html.twig') }}
+{% endblock %}
